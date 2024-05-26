@@ -1,7 +1,7 @@
 {
   "LocaleSwitcher": {
     "label": "Change language",
-    "locale": "{locale, select, id {id Indonesian} en {🇺🇸 English} other {Unknown}}"
+    "locale": "{locale, select, id {🇮🇩 Indonesian} en {🇺🇸 English} other {Unknown}}"
   },
   "Header": {
     "nav": {
