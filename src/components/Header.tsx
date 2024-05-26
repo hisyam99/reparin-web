@@ -64,31 +64,10 @@ const Header = () => {
             />
           </svg>
         </Button>
-        <Drawer direction="left" open={isOpen} onOpenChange={setIsOpen}>
-          <DrawerContent className="h-screen top-0 right-auto left-auto mt-0 w-[400px] rounded-none">
-            <DrawerHeader>
-              <DrawerTitle>{t("drawerTitle")}</DrawerTitle>
-            </DrawerHeader>
-            <div className="p-4 pb-0 space-y-4">
-              {menuItems.map((item, index) => (
-                <Link key={index} href={item.href} passHref>
-                  <div className="bg-muted flex items-center justify-center rounded-lg h-24 cursor-pointer mb-2">
-                    <p>{item.title}</p>
-                  </div>
-                </Link>
-              ))}
-              <ModeToggle />
-              <br />
-              <LocaleSwitcher />
-            </div>
-          </DrawerContent>
-        </Drawer>
+        <MenuDrawer isOpen={isOpen} setIsOpen={setIsOpen} menuItems={menuItems} />
       </div>
       <nav className="hidden md:block">
-        <NavigationMenuDemo
-          menuItems={menuItems}
-          onClose={() => setIsOpen(false)}
-        />
+        <MainNavigationMenu menuItems={menuItems} onClose={() => setIsOpen(false)} />
       </nav>
     </header>
   );
@@ -99,7 +78,48 @@ type MenuItem = {
   href: string;
 };
 
-function NavigationMenuDemo({
+function MenuDrawer({
+  isOpen,
+  setIsOpen,
+  menuItems,
+}: {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+  menuItems: MenuItem[];
+}) {
+  const t = useTranslations("Header");
+
+  const handleMenuItemClick = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <Drawer direction="left" open={isOpen} onOpenChange={setIsOpen}>
+      <DrawerContent className="h-screen top-0 right-auto left-auto mt-0 w-[300px] rounded-none">
+        {/* <DrawerHeader>
+          <DrawerTitle>{t("drawerTitle")}</DrawerTitle>
+        </DrawerHeader> */}
+        <div className="p-4 pb-0 space-y-4">
+          {menuItems.map((item, index) => (
+            <Link key={index} href={item.href} passHref>
+              <div
+                className="bg-muted flex items-center justify-center rounded-lg h-12 cursor-pointer mb-2"
+                onClick={handleMenuItemClick}
+              >
+                <p>{item.title}</p>
+              </div>
+            </Link>
+          ))}
+          <ModeToggle />
+          <br />
+          <LocaleSwitcher />
+        </div>
+      </DrawerContent>
+    </Drawer>
+  );
+}
+
+function MainNavigationMenu({
   menuItems,
   onClose,
 }: {

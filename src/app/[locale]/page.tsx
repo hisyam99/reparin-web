@@ -8,7 +8,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between ">
       <section className="w-full text-center py-12 relative">
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center gradient-overlay"
+          className="absolute inset-0 z-0 bg-cover bg-center brightness-50"
           style={{ backgroundImage: "url('/background.jpg')" }}
         ></div>
         <div className="relative z-10">
@@ -19,7 +19,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full max-w-5xl grid lg:grid-cols-3 gap-8 py-12">
+      <section className="max-w-5xl grid lg:grid-cols-3 gap-8 m-8">
         <div className="rounded-lg border border-gray-300 p-6 hover:bg-gray-100 hover:dark:bg-neutral-800/30">
           <h2 className="text-2xl font-semibold mb-3">
             {t("laptopRepairsTitle")}
@@ -42,8 +42,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full max-w-5xl py-12 text-center">
-        <h2 className="text-3xl font-semibold mb-6">{t("whyChooseUs")}</h2>
+      <section className="max-w-5xl m-8">
+        <h2 className="text-3xl text-center font-semibold mb-6">
+          {t("whyChooseUs")}
+        </h2>
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="rounded-lg border border-gray-300 p-6 hover:bg-gray-100 hover:dark:bg-neutral-800/30">
             <h3 className="text-xl font-semibold mb-3">
@@ -72,7 +74,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full max-w-5xl py-12 text-center">
+      <section className="max-w-5xl text-center m-8">
         <h2 className="text-3xl font-semibold mb-6">{t("getInTouch")}</h2>
         <p className="text-lg mb-6">{t("getInTouchMessage")}</p>
         <a

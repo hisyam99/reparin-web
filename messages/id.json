@@ -1,7 +1,7 @@
 {
     "LocaleSwitcher": {
         "label": "Ubah Bahasa",
-        "locale": "{locale, select, id {id Bahasa Indonesia} en {🇺🇸 English} other {Unknown}}"
+        "locale": "{locale, select, id {id Indonesian} en {🇺🇸 English} other {Unknown}}"
       },
     
     "Header": {
