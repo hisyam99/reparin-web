@@ -1,9 +1,17 @@
 "use client";
 
-import clsx from "clsx";
 import { useParams } from "next/navigation";
-import { ChangeEvent, ReactNode, useTransition } from "react";
+import { ReactNode, useTransition } from "react";
 import { useRouter, usePathname } from "@/navigation";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 type Props = {
   children: ReactNode;
@@ -21,36 +29,38 @@ export default function LocaleSwitcherSelect({
   const pathname = usePathname();
   const params = useParams();
 
-  function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = event.target.value;
+  function onSelectChange(value: string) {
+    const nextLocale = value;
     startTransition(() => {
       router.replace(
-        // @ts-expect-error -- TypeScript will validate that only known `params`
-        // are used in combination with a given `pathname`. Since the two will
-        // always match for the current route, we can skip runtime checks.
-        { pathname, params },
+        {
+          pathname,
+          query: {
+            ...params,
+          },
+        },
         { locale: nextLocale }
       );
     });
   }
 
   return (
-    <label
-      className={clsx(
-        "relative text-black-400",
-        isPending && "transition-opacity [&:disabled]:opacity-30"
-      )}
-    >
-      <p className="sr-only">{label}</p>
-      <select
-        className="inline-flex appearance-none bg-transparent py-3 pl-2 pr-6"
+    <div className="relative text-black-400">
+      <Select
+        onValueChange={onSelectChange}
         defaultValue={defaultValue}
         disabled={isPending}
-        onChange={onSelectChange}
       >
-        {children}
-      </select>
-      <span className="pointer-events-none absolute right-2 top-[8px]">⌄</span>
-    </label>
+        <SelectTrigger className="w-[180px]">
+          <SelectValue placeholder={label} />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>{label}</SelectLabel>
+            {children}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    </div>
   );
 }

@@ -5,7 +5,7 @@ export default function Home() {
   const t = useTranslations("Home");
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between ">
+    <main className="flex min-h-screen flex-col items-center ">
       <section className="w-full text-center py-12 relative">
         <div
           className="absolute inset-0 z-0 bg-cover bg-center brightness-50"
