@@ -1,0 +1,61 @@
+{
+    "LocaleSwitcher": {
+        "label": "Ubah Bahasa",
+        "locale": "{locale, select, id {id Bahasa Indonesia} en {🇺🇸 English} other {Unknown}}"
+      },
+    
+    "Header": {
+        "nav": {
+          "home": "Beranda",
+          "service": "Layanan",
+          "createService": "Buat Layanan"
+        },
+        "drawerTitle": "Navigasi"
+      },
+  
+    "Home": {
+    "welcomeTitle": "Selamat Datang di Layanan Perbaikan Elektronik Anda",
+    "welcomeMessage": "Kami menyediakan layanan perbaikan yang cepat, andal, dan terjangkau untuk semua perangkat elektronik Anda.",
+    "laptopRepairsTitle": "Perbaikan Laptop",
+    "laptopRepairsMessage": "Layanan perbaikan profesional dan efisien untuk semua merek dan model laptop.",
+    "mobileRepairsTitle": "Perbaikan Ponsel",
+    "mobileRepairsMessage": "Perbaikan cepat dan andal untuk semua jenis ponsel, termasuk penggantian layar.",
+    "tabletRepairsTitle": "Perbaikan Tablet",
+    "tabletRepairsMessage": "Layanan perbaikan menyeluruh untuk tablet, memastikan mereka berfungsi seperti baru.",
+    "whyChooseUs": "Mengapa Memilih Kami?",
+    "expertTechniciansTitle": "Teknisi Ahli",
+    "expertTechniciansMessage": "Teknisi kami sangat terlatih dan berpengalaman dalam memperbaiki semua jenis elektronik.",
+    "qualityPartsTitle": "Bagian Berkualitas",
+    "qualityPartsMessage": "Kami hanya menggunakan bagian berkualitas tinggi untuk semua perbaikan kami guna memastikan daya tahan dan kinerja.",
+    "customerSatisfactionTitle": "Kepuasan Pelanggan",
+    "customerSatisfactionMessage": "Kami memprioritaskan kepuasan pelanggan dan berusaha memberikan layanan terbaik.",
+    "getInTouch": "Hubungi Kami",
+    "getInTouchMessage": "Hubungi kami hari ini untuk menjadwalkan perbaikan atau mendapatkan penawaran gratis untuk perangkat Anda.",
+    "contactUsButton": "Hubungi Kami"
+  },
+  "Footer": {
+    "aboutUs": "Tentang Kami",
+    "companyInfo": "Info Perusahaan",
+    "team": "Tim",
+    "careers": "Karir",
+    "resources": "Sumber Daya",
+    "blog": "Blog",
+    "helpCenter": "Pusat Bantuan",
+    "contactUs": "Hubungi Kami",
+    "legal": "Legal",
+    "termsOfService": "Syarat Layanan",
+    "privacyPolicy": "Kebijakan Privasi",
+    "cookiePolicy": "Kebijakan Cookie",
+    "followUs": "Ikuti Kami",
+    "allRightsReserved": "&copy; 2024 SiPinter. Hak cipta dilindungi undang-undang."
+  },
+
+  "ServiceList": {
+    "service-list": "Daftar Service"
+  },
+  "NotFoundPage": {
+    "title": "Waduhhhhh . . .",
+    "description": "belum digarap :p",
+    "backToHome": "Kembali"
+  }
+}

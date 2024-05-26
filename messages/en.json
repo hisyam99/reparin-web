@@ -1,0 +1,59 @@
+{
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, id {id Indonesian} en {🇺🇸 English} other {Unknown}}"
+  },
+  "Header": {
+    "nav": {
+      "home": "Home",
+      "service": "Service",
+      "createService": "Create Service"
+    },
+    "drawerTitle": "Navigation"
+  },
+  "Home": {
+    "welcomeTitle": "Welcome to Your Electronics Repair Service",
+    "welcomeMessage": "We provide fast, reliable, and affordable repair services for all your electronic devices.",
+    "laptopRepairsTitle": "Laptop Repairs",
+    "laptopRepairsMessage": "Professional and efficient repair services for all brands and models of laptops.",
+    "mobileRepairsTitle": "Mobile Phone Repairs",
+    "mobileRepairsMessage": "Quick and reliable repairs for all types of mobile phones, including screen replacements.",
+    "tabletRepairsTitle": "Tablet Repairs",
+    "tabletRepairsMessage": "Comprehensive repair services for tablets, ensuring they work like new.",
+    "whyChooseUs": "Why Choose Us?",
+    "expertTechniciansTitle": "Expert Technicians",
+    "expertTechniciansMessage": "Our technicians are highly trained and experienced in repairing all kinds of electronics.",
+    "qualityPartsTitle": "Quality Parts",
+    "qualityPartsMessage": "We use only high-quality parts for all our repairs to ensure durability and performance.",
+    "customerSatisfactionTitle": "Customer Satisfaction",
+    "customerSatisfactionMessage": "We prioritize customer satisfaction and strive to provide the best service possible.",
+    "getInTouch": "Get in Touch",
+    "getInTouchMessage": "Contact us today to schedule a repair or to get a free quote for your device.",
+    "contactUsButton": "Contact Us"
+  },
+  "Footer": {
+    "aboutUs": "About Us",
+    "companyInfo": "Company Info",
+    "team": "Team",
+    "careers": "Careers",
+    "resources": "Resources",
+    "blog": "Blog",
+    "helpCenter": "Help Center",
+    "contactUs": "Contact Us",
+    "legal": "Legal",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "followUs": "Follow Us",
+    "allRightsReserved": "&copy; 2024 SiPinter. All rights reserved."
+  },
+
+  "ServiceList": {
+    "service-list": "Service List"
+  },
+  "NotFoundPage": {
+    "title": "Waduhhhhh . . .",
+    "description": "belum digarap :p",
+    "backToHome": "Back to home"
+  }
+}
