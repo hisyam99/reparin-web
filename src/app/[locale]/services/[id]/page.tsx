@@ -6,10 +6,11 @@ import ServiceItem from "@/components/ServiceItem";
 import DeleteConfirmation from "@/components/DeleteConfirmation";
 
 interface Service {
-  id: string;
+  id: number;
   name: string;
   description: string;
-  // Add other properties of the service here
+  location: string;
+  rating: number;
 }
 
 const ServiceDetail: React.FC = () => {

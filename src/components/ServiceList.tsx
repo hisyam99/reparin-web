@@ -4,7 +4,7 @@ import { Card, CardTitle } from "@/components/ui/card";
 import { useTranslations } from "next-intl";
 
 interface Service {
-  id: number; // Changed from ID to id
+  id: number;
   name: string;
   description: string;
 }
@@ -22,8 +22,8 @@ const ServiceList: React.FC<ServiceListProps> = ({ services }) => {
       </CardTitle>
       <ul className="space-y-2">
         {services.map((service) => (
-          <li key={service.ID} className="hover:bg-gray-100 p-2 rounded-md">
-            <Link href={`/services/ /?id=${service.ID}`} passHref>
+          <li key={service.id} className="hover:bg-gray-100 p-2 rounded-md">
+            <Link href={`/services/ /?id=${service.id}`} passHref>
               <span className="block">
                 {" "}
                 {/* Ganti <a> dengan <span> */}

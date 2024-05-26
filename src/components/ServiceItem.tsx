@@ -2,11 +2,11 @@ import React from "react";
 import Link from "next/link";
 
 type Service = {
-  ID: string;
+  id: number;
   name: string;
   description: string;
   location: string;
-  rating: string;
+  rating: number;
 };
 
 type ServiceItemProps = {
@@ -23,7 +23,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({ service }) => {
           Location: {service.location}
         </p>
         <p className="text-sm text-gray-500 mb-2">Rating: {service.rating}</p>
-        <Link href={`/services/?id=${service.ID}`} passHref>
+        <Link href={`/services/?id=${service.id}`} passHref>
           <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
             Details
           </button>
