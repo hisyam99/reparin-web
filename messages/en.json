@@ -29,7 +29,9 @@
     "customerSatisfactionMessage": "We prioritize customer satisfaction and strive to provide the best service possible.",
     "getInTouch": "Get in Touch",
     "getInTouchMessage": "Contact us today to schedule a repair or to get a free quote for your device.",
-    "contactUsButton": "Contact Us"
+    "contactUsButton": "Contact Us",
+    "testimoni": "Testimoni",
+    "description": "isi testimoni"
   },
   "Footer": {
     "aboutUs": "About Us",
@@ -47,9 +49,9 @@
     "followUs": "Follow Us",
     "allRightsReserved": "&copy; 2024 SiPinter. All rights reserved."
   },
-
   "ServiceList": {
-    "service-list": "Service List"
+    "service-list": "Service List",
+    "service-list-description": "All Service List"
   },
   "NotFoundPage": {
     "title": "Waduhhhhh . . .",

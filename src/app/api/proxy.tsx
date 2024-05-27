@@ -19,7 +19,7 @@ export default async function handler(
     body: method === "GET" ? null : JSON.stringify(body),
   });
 
-  const data: any = await response.json(); // Tipe data disesuaikan dengan respons yang diharapkan
+  const data: any = await response.json();
 
   res.status(response.status).json(data);
 }

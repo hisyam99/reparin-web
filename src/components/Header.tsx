@@ -39,13 +39,17 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center p-4">
       <div className="flex items-center">
-        <Image
-          src="/logo/logo_sipinter.png"
-          alt="Company Logo"
-          width={150}
-          height={150}
-        />
-      </div>
+      <Link href="/" passHref>
+        
+          <Image
+            src="/logo/logo_sipinter.png"
+            alt="Company Logo"
+            width={150}
+            height={150}
+          />
+       
+      </Link>
+    </div>
       <div className="block md:hidden">
         <Button variant="outline" onClick={toggleMenu}>
           <span className="sr-only">Toggle menu</span>

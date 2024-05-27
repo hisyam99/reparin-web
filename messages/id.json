@@ -31,7 +31,9 @@
     "customerSatisfactionMessage": "Kami memprioritaskan kepuasan pelanggan dan berusaha memberikan layanan terbaik.",
     "getInTouch": "Hubungi Kami",
     "getInTouchMessage": "Hubungi kami hari ini untuk menjadwalkan perbaikan atau mendapatkan penawaran gratis untuk perangkat Anda.",
-    "contactUsButton": "Hubungi Kami"
+    "contactUsButton": "Hubungi Kami",
+    "testimoni": "Testimoni",
+    "description": "Apa kata orang tentang platform kami !"
   },
   "Footer": {
     "aboutUs": "Tentang Kami",
@@ -51,7 +53,9 @@
   },
 
   "ServiceList": {
-    "service-list": "Daftar Service"
+    "service-list": "Daftar Service",
+    "service-list-description": "Semua daftar servis yang ada."
+
   },
   "NotFoundPage": {
     "title": "Waduhhhhh . . .",

@@ -10,10 +10,10 @@ export const locales = ["en", "id"] as const;
 
 export const pathnames = {
   "/": "/",
-  //   '/services': {         //Masih ngebug :/
-  //     en: '/services',
-  //     id: '/layanan'
-  //   }
+    '/services': {         //Masih ngebug :/
+      en: '/services',
+      id: '/layanan'
+    }
 } satisfies Pathnames<typeof locales>;
 
 // Use the default: `always`

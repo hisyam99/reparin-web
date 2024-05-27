@@ -1,94 +1,142 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { toast } from "@/components/ui/use-toast";
+import CustomAlert from "@/components/CustomAlert";
+
+const FormSchema = z.object({
+  name: z.string().min(1, { message: "Name is required." }),
+  description: z.string().min(1, { message: "Description is required." }),
+  location: z.string().min(1, { message: "Location is required." }),
+  rating: z.string().min(1, { message: "Rating is required." }),
+});
+
+type FormSchemaType = z.infer<typeof FormSchema>;
 
 type ServiceFormProps = {
-  onSubmit: (service: {
-    name: string;
-    description: string;
-    location: string;
-    rating: string;
-  }) => Promise<void>;
+  onSubmit: (service: FormSchemaType) => Promise<void>;
 };
 
 const ServiceForm: React.FC<ServiceFormProps> = ({ onSubmit }) => {
-  const [name, setName] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-  const [location, setLocation] = useState<string>("");
-  const [rating, setRating] = useState<string>("");
-  const [error, setError] = useState<string>("");
+  const form = useForm<FormSchemaType>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      name: "",
+      description: "",
+      location: "",
+      rating: "",
+    },
+  });
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const [alert, setAlert] = React.useState<{
+    title: string;
+    description: string;
+    variant: "default" | "success" | "error" | "warning";
+  } | null>(null);
 
-    // Validate input before sending POST request
-    if (!name || !description || !location || !rating) {
-      setError("Please fill in all fields.");
-      return;
-    }
-
+  const handleSubmit = async (data: FormSchemaType) => {
     try {
-      await onSubmit({ name, description, location, rating });
-
-      setName("");
-      setDescription("");
-      setLocation("");
-      setRating("");
-      setError("");
+      await onSubmit(data);
+      setAlert({
+        title: "Success",
+        description: "Form submitted successfully",
+        variant: "success",
+      });
+      form.reset();
     } catch (err) {
-      setError((err as Error).message);
+      setAlert({
+        title: "Submission error",
+        description: (err as Error).message,
+        variant: "error",
+      });
     }
   };
 
   return (
     <div>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setName(e.target.value)
-          }
-          required
-          className="block w-full p-2 border rounded"
-        />
-        <input
-          type="text"
-          placeholder="Description"
-          value={description}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setDescription(e.target.value)
-          }
-          required
-          className="block w-full p-2 border rounded"
-        />
-        <input
-          type="text"
-          placeholder="Location"
-          value={location}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setLocation(e.target.value)
-          }
-          required
-          className="block w-full p-2 border rounded"
-        />
-        <input
-          type="number"
-          placeholder="Rating"
-          value={rating}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            setRating(e.target.value)
-          }
-          required
-          className="block w-full p-2 border rounded"
-        />
-        <button
-          type="submit"
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
-          Submit
-        </button>
-      </form>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(handleSubmit)} className=" space-y-6">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Service Name" {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is the name of the service.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Description</FormLabel>
+                <FormControl>
+                  <Input placeholder="Service Description" {...field} />
+                </FormControl>
+                <FormDescription>
+                  Provide a brief description of the service.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="location"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Location</FormLabel>
+                <FormControl>
+                  <Input placeholder="Service Location" {...field} />
+                </FormControl>
+                <FormDescription>Where is the service located?</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="rating"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Rating</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Service Rating"
+                    type="number"
+                    {...field}
+                  />
+                </FormControl>
+                <FormDescription>Rate the service from 1 to 5.</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit">Submit</Button>
+        </form>
+      </Form>
+      {alert && <CustomAlert {...alert} />}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import ServiceList from "@/components/ServiceList";
 
 interface Service {
-  id: number;
+  ID: number;
   name: string;
   description: string;
 }
@@ -29,7 +29,7 @@ const Services: React.FC = () => {
   return (
     <div style={backgroundStyle}>
       <section>
-        <h1 className="text-3xl font-bold mt-4 mb-4">Available Services</h1>
+        <h1 className="container text-3xl font-bold mt-4 mb-4">Available Services</h1>
         <ServiceList services={services} />
       </section>
     </div>
