@@ -27,7 +27,7 @@ const FormSchema = z.object({
 type FormSchemaType = z.infer<typeof FormSchema>;
 
 const RegisterForm: React.FC = () => {
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string | null>(null);
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -43,8 +43,15 @@ const RegisterForm: React.FC = () => {
 
       // Handle successful registration response
       console.log("Registration successful:", responseData);
-    } catch (error) {
-      setError(error.response?.data?.message || "An error occurred");
+      setError(null); // Clear any previous errors
+    } catch (err) {
+      if (axios.isAxiosError(err)) {
+        // Axios error
+        setError(err.response?.data?.message || "An error occurred");
+      } else {
+        // Other errors
+        setError("An unknown error occurred");
+      }
     }
   };
 
