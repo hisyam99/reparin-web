@@ -1,19 +1,20 @@
 {
-    "LocaleSwitcher": {
-        "label": "Ubah Bahasa",
-        "locale": "{locale, select, id {🇮🇩 Indonesian} en {🇺🇸 English} other {Unknown}}"
-      },
-    
-    "Header": {
-        "nav": {
-          "home": "Beranda",
-          "service": "Layanan",
-          "createService": "Buat Layanan"
-        },
-        "drawerTitle": "Navigasi"
-      },
-  
-    "Home": {
+  "LocaleSwitcher": {
+    "label": "Ubah Bahasa",
+    "locale": "{locale, select, id {🇮🇩 Indonesian} en {🇺🇸 English} other {Unknown}}"
+  },
+
+  "Header": {
+    "nav": {
+      "home": "Beranda",
+      "service": "Layanan",
+      "createService": "Buat Layanan",
+      "login": "Masuk"
+    },
+    "drawerTitle": "Navigasi"
+  },
+
+  "Home": {
     "welcomeTitle": "Selamat Datang di Layanan Perbaikan Elektronik Anda",
     "welcomeMessage": "Kami menyediakan layanan perbaikan yang cepat, andal, dan terjangkau untuk semua perangkat elektronik Anda.",
     "laptopRepairsTitle": "Perbaikan Laptop",
@@ -55,7 +56,6 @@
   "ServiceList": {
     "service-list": "Daftar Service",
     "service-list-description": "Semua daftar servis yang ada."
-
   },
   "NotFoundPage": {
     "title": "Waduhhhhh . . .",

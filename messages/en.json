@@ -7,7 +7,8 @@
     "nav": {
       "home": "Home",
       "service": "Service",
-      "createService": "Create Service"
+      "createService": "Create Service",
+      "login": "Login"
     },
     "drawerTitle": "Navigation"
   },
@@ -30,8 +31,8 @@
     "getInTouch": "Get in Touch",
     "getInTouchMessage": "Contact us today to schedule a repair or to get a free quote for your device.",
     "contactUsButton": "Contact Us",
-    "testimoni": "Testimoni",
-    "description": "isi testimoni"
+    "testimoni": "Testimonies",
+    "description": "Here's what people are saying about our platform"
   },
   "Footer": {
     "aboutUs": "About Us",

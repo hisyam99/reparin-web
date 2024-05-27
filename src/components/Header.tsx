@@ -34,22 +34,21 @@ const Header = () => {
     { title: t("nav.home"), href: "/" },
     { title: t("nav.service"), href: "/services" },
     { title: t("nav.createService"), href: "/services/create" },
+    { title: t("nav.login"), href: "/login" },
   ];
 
   return (
     <header className="flex justify-between items-center p-4">
       <div className="flex items-center">
-      <Link href="/" passHref>
-        
+        <Link href="/" passHref>
           <Image
             src="/logo/logo_sipinter.png"
             alt="Company Logo"
             width={150}
             height={150}
           />
-       
-      </Link>
-    </div>
+        </Link>
+      </div>
       <div className="block md:hidden">
         <Button variant="outline" onClick={toggleMenu}>
           <span className="sr-only">Toggle menu</span>
@@ -68,10 +67,17 @@ const Header = () => {
             />
           </svg>
         </Button>
-        <MenuDrawer isOpen={isOpen} setIsOpen={setIsOpen} menuItems={menuItems} />
+        <MenuDrawer
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          menuItems={menuItems}
+        />
       </div>
       <nav className="hidden md:block">
-        <MainNavigationMenu menuItems={menuItems} onClose={() => setIsOpen(false)} />
+        <MainNavigationMenu
+          menuItems={menuItems}
+          onClose={() => setIsOpen(false)}
+        />
       </nav>
     </header>
   );
@@ -114,9 +120,8 @@ function MenuDrawer({
               </div>
             </Link>
           ))}
-          <ModeToggle />
-          <br />
           <LocaleSwitcher />
+          <ModeToggle />
         </div>
       </DrawerContent>
     </Drawer>
