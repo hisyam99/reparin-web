@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import ServiceList from "@/components/ServiceList";
 
 interface Service {
-  ID: number;
+  id: number;
   name: string;
   description: string;
 }
