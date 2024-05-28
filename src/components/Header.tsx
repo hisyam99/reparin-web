@@ -1,15 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import {
   Drawer,
   DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import {
@@ -38,7 +36,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="flex justify-between items-center p-4">
+    <header className="flex justify-between items-center p-4 min-h-[80px]">
       <div className="flex items-center">
         <Link href="/" passHref>
           <Image
@@ -46,6 +44,7 @@ const Header = () => {
             alt="Company Logo"
             width={125}
             height={125}
+            priority
           />
         </Link>
       </div>
@@ -106,9 +105,6 @@ function MenuDrawer({
   return (
     <Drawer direction="left" open={isOpen} onOpenChange={setIsOpen}>
       <DrawerContent className="h-screen top-0 right-auto left-auto mt-0 w-[300px] rounded-none">
-        {/* <DrawerHeader>
-          <DrawerTitle>{t("drawerTitle")}</DrawerTitle>
-        </DrawerHeader> */}
         <div className="p-4 pb-0 space-y-4">
           {menuItems.map((item, index) => (
             <Link key={index} href={item.href} passHref>
