@@ -8,24 +8,46 @@ SiPinter Services adalah platform yang menyediakan layanan perbaikan untuk berba
 
 ### Powered by
 
-
-  <a href="https://nextjs.org">
+<a href="https://nextjs.org">
   <img src="https://repository-images.githubusercontent.com/693695940/7f35431e-2c4e-4e43-acc2-5585bfb9baa2" alt="Next.js Logo" width="100">
 </a>
-
-  <a href="https://go.dev/">
-  <img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" alt="Golang Logo" width="100">
-</a>
-  
-
-
 
 ### Setup
 
 Untuk menjalankan aplikasi ini di environment lokal, ikuti langkah-langkah berikut:
 
+#### Menjalankan Backend ([sipinter-api](https://github.com/hisyam99/sipinter-api))
+
 1. **Prasyarat:**
-   - Pastikan https://bun.sh sudah terinstall.
+   - Pastikan Go sudah terinstall.
+   - Pastikan MongoDB sudah terinstall dan berjalan.
+
+2. **Clone Repositori:**
+   ```bash
+   git clone https://github.com/hisyam99/sipinter-api.git
+   ```
+
+3. **Cara menjalankan di lokal:**
+   - Masuk ke direktori:
+     ```bash
+     cd sipinter-api
+     ```
+   - Install dependencies:
+     ```bash
+     go mod tidy
+     ```
+   - Jalankan server:
+     ```bash
+     go run main.go
+     ```
+
+4. **Akses API:**
+   - API akan berjalan di `http://localhost:8080`.
+
+#### Menjalankan Frontend (sipinter-web)
+
+1. **Prasyarat:**
+   - Pastikan bun.sh sudah terinstall.
 
 2. **Clone Repositori:**
    ```bash
@@ -46,11 +68,10 @@ Untuk menjalankan aplikasi ini di environment lokal, ikuti langkah-langkah berik
      bun run dev
      ```
 
-
 4. **Akses Aplikasi:**
    - Buka browser dan kunjungi `http://localhost:3000` untuk mengakses SiPinter Services.
 
-### ~~Fitur Utama~~ Bug 
+### ~~Fitur Utama~~ Bug
 
 1. **UI masih anomali**
 2. **Masih banyak bug :pp**
