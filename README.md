@@ -1,10 +1,10 @@
-## SiPinter Service: Solusi Perbaikan Tepat dan Terpercaya
+## ~~SiPinter Service~~ kini jadi FixITNow: Cepat, Dekat, Terpercaya.
 
 Aplikasi yang menawarkan solusi perbaikan tepat dan terpercaya.
 
 ### Deskripsi Singkat
 
-SiPinter Services adalah platform yang menyediakan layanan perbaikan untuk berbagai perangkat elektronik seperti laptop, ponsel, tablet, dan lainnya. SiPinter Service membantu pengguna menemukan teknisi perbaikan yang handal dan berkualitas.
+FixItNow adalah platform yang menyediakan layanan perbaikan untuk berbagai perangkat elektronik seperti laptop, ponsel, tablet, dan lainnya. SiPinter Service membantu pengguna menemukan teknisi perbaikan yang handal dan berkualitas.
 
 ### Powered by
 
@@ -69,7 +69,7 @@ Untuk menjalankan aplikasi ini di environment lokal, ikuti langkah-langkah berik
      ```
 
 4. **Akses Aplikasi:**
-   - Buka browser dan kunjungi `http://localhost:3000` untuk mengakses SiPinter Services.
+   - Buka browser dan kunjungi `http://localhost:3000` untuk mengakses FixITNow.
 
 ### ~~Fitur Utama~~ Bug
 
@@ -80,4 +80,4 @@ Untuk menjalankan aplikasi ini di environment lokal, ikuti langkah-langkah berik
 
 Jika memiliki pertanyaan, saran, atau masalah terkait aplikasi, silakan hubungi tim SiPinter Service melalui email di admin@sipinter-service.com.
 
-Terima kasih telah menggunakan SiPinter Service untuk kebutuhan perbaikan perangkat elektronik Anda! Semoga aplikasi ini memberikan pengalaman yang memuaskan dan membantu memperbaiki perangkat Anda dengan lebih mudah.
+Terima kasih telah menggunakan FixITNow untuk kebutuhan perbaikan perangkat elektronik Anda! Semoga aplikasi ini memberikan pengalaman yang memuaskan dan membantu memperbaiki perangkat Anda dengan lebih mudah.
