@@ -9,7 +9,7 @@ export default async function handler(
   // Jika metode adalah POST dan URL adalah /api/register, meneruskan ke backend Go
   if (method === "POST" && req.url === "/register") {
     try {
-      const response = await fetch("http://localhost:8080/api/register", {
+      const response = await fetch("http://localhost:8080/api/users/register", { // Ubah URL endpoint ke /api/users/register
         method: "POST",
         headers: {
           "Content-Type": "application/json",

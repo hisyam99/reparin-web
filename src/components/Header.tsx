@@ -42,10 +42,10 @@ const Header = () => {
       <div className="flex items-center">
         <Link href="/" passHref>
           <Image
-            src="/logo/logo_sipinter.png"
+            src="/icon/fixitnow-icon.png"
             alt="Company Logo"
-            width={150}
-            height={150}
+            width={125}
+            height={125}
           />
         </Link>
       </div>
@@ -140,14 +140,13 @@ function MainNavigationMenu({
       <NavigationMenuList>
         {menuItems.map((item, index) => (
           <NavigationMenuItem key={index}>
-            <Link href={item.href} passHref>
-              <NavigationMenuLink
-                className={navigationMenuTriggerStyle()}
-                onClick={onClose} // Close the drawer when a menu item is clicked
-              >
-                {item.title}
-              </NavigationMenuLink>
-            </Link>
+            <NavigationMenuLink
+              href={item.href}
+              className={navigationMenuTriggerStyle()}
+              onClick={onClose}
+            >
+              {item.title}
+            </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
         <LocaleSwitcher />

@@ -79,10 +79,11 @@ const Footer: React.FC = () => {
                 className="hover:underline"
               >
                 <Image
-                  src="/images/facebook-icon.png"
+                  src="/icon/facebook-icon.svg"
                   alt="Facebook"
                   width={24}
                   height={24}
+                  className="dark:invert"
                 />
               </a>
               <a
@@ -92,10 +93,11 @@ const Footer: React.FC = () => {
                 className="hover:underline"
               >
                 <Image
-                  src="/images/twitter-icon.png"
+                  src="/icon/twitter-icon.svg"
                   alt="Twitter"
                   width={24}
                   height={24}
+                  className="dark:invert"
                 />
               </a>
               <a
@@ -105,10 +107,11 @@ const Footer: React.FC = () => {
                 className="hover:underline"
               >
                 <Image
-                  src="/images/instagram-icon.png"
+                  src="/icon/instagram-icon.svg"
                   alt="Instagram"
                   width={24}
                   height={24}
+                  className="dark:invert"
                 />
               </a>
               <a
@@ -118,10 +121,11 @@ const Footer: React.FC = () => {
                 className="hover:underline"
               >
                 <Image
-                  src="/images/linkedin-icon.png"
+                  src="/icon/linkedin-icon.svg"
                   alt="LinkedIn"
                   width={24}
                   height={24}
+                  className="dark:invert"
                 />
               </a>
             </div>
