@@ -16,8 +16,9 @@ export default function Login() {
     padding: "20px",
   };
 
-  function handleLoginSuccess() {
-    router.push("/");
+  async function handleLoginSuccess() {
+    router.refresh;
+    await router.push("/");
   }
 
   return (
