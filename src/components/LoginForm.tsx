@@ -1,5 +1,3 @@
-// File 2: /src/components/LoginForm.tsx
-
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,16 +7,17 @@ import { useLocale, useTranslations } from "next-intl";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormLabel,
   FormItem,
   FormMessage,
+  FormDescription,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Terminal } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { PasswordField } from "@/components/PasswordField";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -99,27 +98,24 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input type="password" placeholder="Password" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <FormItem>
+            <FormLabel>Password</FormLabel>
+            <PasswordField
+              name="password"
+              placeholder="Password"
+              description="Enter your password here."
+            />
+          </FormItem>
+
           <div>
-          <Button type="submit" className="mr-4">Submit</Button>
-          <Button type="button" onClick={handleGoogleSignIn}>
-            Sign in with Google
-          </Button>
+            <Button type="submit" className="mr-4">
+              Submit
+            </Button>
+            <Button type="button" onClick={handleGoogleSignIn}>
+              Sign in with Google
+            </Button>
           </div>
-          
-          
+
           {/* Use Alert component for error message */}
           {error && (
             <Alert>
