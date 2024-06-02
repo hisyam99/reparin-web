@@ -17,8 +17,8 @@ export default function Login() {
   };
 
   async function handleLoginSuccess() {
-    router.refresh;
     await router.push("/");
+    router.refresh;
   }
 
   return (
