@@ -21,9 +21,9 @@ const UserActionButton = () => {
 
   return (
     <div className="flex justify-between gap-2">
-      <Button>
-        <Link href={actionURL}>{actionLabel}</Link>
-      </Button>
+      <Link href={actionURL}>
+        <Button>{actionLabel}</Button>
+      </Link>
     </div>
   );
 };
