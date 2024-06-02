@@ -7,6 +7,7 @@ const publicPages = [
   "/",
   "/register",
   "/login",
+  "/logout",
   "/services",
   // (/secret requires auth)
 ];

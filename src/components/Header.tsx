@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
@@ -18,30 +18,40 @@ import {
 import LocaleSwitcher from "./LocaleSwitcher";
 import { ModeToggle } from "./ModeToggle";
 
+type MenuItem = {
+  title: string;
+  href: string;
+  onClick?: () => void;
+};
+
 export default function Header() {
   const { data: session } = useSession();
   const t = useTranslations("Header");
   const [isOpen, setIsOpen] = useState(false);
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+
+  useEffect(() => {
+    const updatedMenuItems = [
+      { title: t("nav.home"), href: "/" },
+      { title: t("nav.service"), href: "/services" },
+      { title: t("nav.createService"), href: "/services/create" },
+    ];
+
+    if (session) {
+      updatedMenuItems.push({
+        title: t("nav.logout"),
+        href: "/logout",
+      });
+    } else {
+      updatedMenuItems.push({ title: t("nav.login"), href: "/login" });
+    }
+
+    setMenuItems(updatedMenuItems);
+  }, [session, t]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  const menuItems: MenuItem[] = [
-    { title: t("nav.home"), href: "/" },
-    { title: t("nav.service"), href: "/services" },
-    { title: t("nav.createService"), href: "/services/create" },
-  ];
-
-  if (session) {
-    menuItems.push({
-      title: t("nav.logout"),
-      href: "#",
-      onClick: () => signOut(),
-    });
-  } else {
-    menuItems.push({ title: t("nav.login"), href: "/login" });
-  }
 
   return (
     <header className="flex justify-between items-center p-4 min-h-[80px]">
@@ -89,12 +99,6 @@ export default function Header() {
     </header>
   );
 }
-
-type MenuItem = {
-  title: string;
-  href: string;
-  onClick?: () => void;
-};
 
 function MenuDrawer({
   isOpen,
