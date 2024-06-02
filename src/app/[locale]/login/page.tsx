@@ -19,10 +19,10 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if (status === "authenticated") {
-      router.push("/");
-    } else {
+    if (status === "unauthenticated") {
       router.push("/login");
+    } else {
+      router.push("/");
     }
   }, [status, router]);
 
@@ -36,11 +36,7 @@ export default function Login() {
   }
 
   if (status === "authenticated") {
-    return (
-      <div>
-        <p>You have been authenticated, redirecting to homepage.</p>
-      </div>
-    );
+    return null; // or you can return a loading spinner or any message
   }
 
   return (
