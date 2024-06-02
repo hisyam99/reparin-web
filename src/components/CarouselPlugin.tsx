@@ -85,7 +85,8 @@ export function CarouselPlugin() {
     {
       id: 14,
       name: "Indro Pitt",
-      comment: "Top markotop! Layaknya perpaduan antara keseruan Indro Warkop dan ketampanan Brad Pitt.",
+      comment:
+        "Top markotop! Layaknya perpaduan antara keseruan Indro Warkop dan ketampanan Brad Pitt.",
     },
     {
       id: 15,
@@ -136,7 +137,7 @@ export function CarouselPlugin() {
             className="w-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
           >
             <div className="p-1">
-              <Card>
+              <Card className="h-32">
                 <CardContent className="flex items-center justify-center p-6">
                   <div>
                     <h4 className="text-xl font-semibold mb-2">
