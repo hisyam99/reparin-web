@@ -42,7 +42,6 @@ const Header = () => {
               alt="Company Logo"
               width={125}
               height={125}
-              priority
             />
           </Link>
         </div>
