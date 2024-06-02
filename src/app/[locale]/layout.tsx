@@ -1,9 +1,9 @@
-import { AuthProvider } from "@/context/AuthContext";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ClientSessionProvider from "@/components/ClientSessionProvider";
 
 export default async function LocaleLayout({
   children,
@@ -15,10 +15,10 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <AuthProvider>
-      <html lang={locale}>
-        <body>
-          <NextIntlClientProvider messages={messages}>
+    <html lang={locale}>
+      <body>
+        <NextIntlClientProvider messages={messages}>
+          <ClientSessionProvider session>
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
@@ -29,9 +29,9 @@ export default async function LocaleLayout({
               {children}
               <Footer />
             </ThemeProvider>
-          </NextIntlClientProvider>
-        </body>
-      </html>
-    </AuthProvider>
+          </ClientSessionProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

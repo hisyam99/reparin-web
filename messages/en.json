@@ -3,12 +3,20 @@
     "label": "Change language",
     "locale": "{locale, select, id {🇮🇩 Indonesian} en {🇺🇸 English} other {Unknown}}"
   },
+  "Login": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Login",
+    "error": "{error, select, CredentialsSignin {Invalid username or password} other {Unknown error}}"
+  },
   "Header": {
     "nav": {
       "home": "Home",
       "service": "Service",
       "createService": "Create Service",
-      "login": "Login"
+      "login": "Login",
+      "logout": "Logout"
     },
     "drawerTitle": "Navigation"
   },

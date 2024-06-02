@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -78,8 +78,8 @@ export default function Home() {
       </section>
 
       <section className="max-w-5xl text-center">
-        <h2 className="text-3xl font-semibold mb-6">{t('testimoni')}</h2>
-        <p className="text-lg mb-6">{t('description')}</p>
+        <h2 className="text-3xl font-semibold mb-6">{t("testimoni")}</h2>
+        <p className="text-lg mb-6">{t("description")}</p>
         <CarouselPlugin />
       </section>
 

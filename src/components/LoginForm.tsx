@@ -1,74 +1,100 @@
+// File 2: /src/components/LoginForm.tsx
+
 import React, { useState } from "react";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-
-import { Button } from "@/components/ui/button";
+import { signIn } from "next-auth/react";
+import { useLocale, useTranslations } from "next-intl";
 import {
   Form,
   FormControl,
   FormDescription,
   FormField,
-  FormItem,
   FormLabel,
+  FormItem,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import CustomAlert from "@/components/CustomAlert";
+import { Button } from "@/components/ui/button";
+import { Terminal } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const FormSchema = z.object({
-  email: z.string().email({ message: "Invalid email format" }),
-  password: z
-    .string()
-    .min(8, { message: "Password must be at least 8 characters" }),
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+  password: z.string().min(6, {
+    message: "Password must be at least 6 characters.",
+  }),
 });
 
 type FormSchemaType = z.infer<typeof FormSchema>;
 
-const LoginForm: React.FC = () => {
-  const [error, setError] = useState<string | null>(null);
+interface LoginFormProps {
+  onSubmitSuccess: () => void;
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
+  const locale = useLocale();
+  const t = useTranslations("Login");
+  const [error, setError] = useState<string>();
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      email: "",
+      username: "",
       password: "",
     },
   });
 
-  const handleSubmit = async (data: FormSchemaType) => {
+  const onSubmit = async (formData: FormSchemaType) => {
     try {
-      const response = await axios.post("/api/users/login", data);
-      const responseData = response.data;
+      const result = await signIn("credentials", {
+        username: formData.username,
+        password: formData.password,
+        redirect: false,
+      });
 
-      // Handle successful login response
-      console.log("Login successful:", responseData);
-      setError(null); // Clear any previous errors
-    } catch (err) {
-      if (axios.isAxiosError(err)) {
-        // Axios error
-        setError(err.response?.data?.message || "An error occurred");
+      if (result?.error) {
+        setError(result.error);
       } else {
-        // Other errors
-        setError("An unknown error occurred");
+        onSubmitSuccess();
       }
+    } catch (err) {
+      setError((err as Error).message);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signIn("google", { redirect: false });
+
+      if (result?.error) {
+        setError(result.error);
+      } else {
+        onSubmitSuccess();
+      }
+    } catch (err) {
+      setError((err as Error).message);
     }
   };
 
   return (
     <div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
-            name="email"
+            name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="Email" {...field} />
+                  <Input placeholder="Username" {...field} />
                 </FormControl>
-                <FormDescription>Enter your email address.</FormDescription>
+                <FormDescription>
+                  This is your public display name.
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -82,18 +108,25 @@ const LoginForm: React.FC = () => {
                 <FormControl>
                   <Input type="password" placeholder="Password" {...field} />
                 </FormControl>
-                <FormDescription>Enter your password.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type="submit">Login</Button>
+          <div>
+          <Button type="submit" className="mr-4">Submit</Button>
+          <Button type="button" onClick={handleGoogleSignIn}>
+            Sign in with Google
+          </Button>
+          </div>
+          
+          
+          {/* Use Alert component for error message */}
           {error && (
-            <CustomAlert
-              title="Login Error"
-              description={error}
-              variant="error"
-            />
+            <Alert>
+              <Terminal className="h-4 w-4" />
+              <AlertTitle>Error!</AlertTitle>
+              <AlertDescription>{t("error", { error })}</AlertDescription>
+            </Alert>
           )}
         </form>
       </Form>

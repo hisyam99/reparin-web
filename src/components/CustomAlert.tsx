@@ -10,7 +10,11 @@ type CustomAlertProps = {
   variant: "default" | "success" | "error" | "warning";
 };
 
-const CustomAlert: React.FC<CustomAlertProps> = ({ title, description, variant }) => {
+const CustomAlert: React.FC<CustomAlertProps> = ({
+  title,
+  description,
+  variant,
+}) => {
   const getIcon = () => {
     switch (variant) {
       case "success":

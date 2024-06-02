@@ -30,7 +30,8 @@ const DeleteConfirmation: React.FC<DeleteConfirmationProps> = ({
         <AlertDialogHeader>
           <AlertDialogTitle>Confirm Delete</AlertDialogTitle>
           <AlertDialogDescription>
-            Are you sure you want to delete this service? This action cannot be undone.
+            Are you sure you want to delete this service? This action cannot be
+            undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

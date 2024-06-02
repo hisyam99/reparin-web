@@ -1,39 +1,39 @@
 "use client";
 
-import { useAuth } from '@/context/AuthContext';
-import { useState } from 'react';
-import LoginForm from '@/components/LoginForm';
-import Link from 'next/link';
+import { useRouter } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import { FormEvent } from "react";
+import Link from "next/link";
 
-export default function LoginPage() {
-    const { login } = useAuth();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+import LoginForm from "@/components/LoginForm";
 
-    const backgroundStyle: React.CSSProperties = {
-        minHeight: "100vh",
-        padding: "20px",
-    };
-    
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+export default function Login() {
+  const t = useTranslations("Login");
+  const router = useRouter();
 
-        // Replace with your authentication logic
-        const user = { username, role: 'admin' }; // mock user
-        login(user);
-    };
+  const backgroundStyle = {
+    minHeight: "100vh",
+    padding: "20px",
+  };
 
-    return (
-        <div style={backgroundStyle}>
-            <div className="container mx-auto">
-                <h1 className="text-3xl font-bold mb-4">Login</h1>
-                <LoginForm />
-                <div className="mt-4">
-                    <p>
-                        Don&apos;t have an account? <Link href="/register" className="text-blue-500 hover:underline">Register here</Link>
-                    </p>
-                </div>
-            </div>
+  function handleLoginSuccess() {
+    router.push("/");
+  }
+
+  return (
+    <div style={backgroundStyle}>
+      <div className="container mx-auto">
+        <h1 className="text-3xl font-bold mb-4">Login</h1>
+        <LoginForm onSubmitSuccess={handleLoginSuccess} />
+        <div className="mt-4">
+          <p>
+            Don&apos;t have an account?{" "}
+            <Link href="/register" className="text-blue-500 hover:underline">
+              Register here
+            </Link>
+          </p>
         </div>
-    );
+      </div>
+    </div>
+  );
 }

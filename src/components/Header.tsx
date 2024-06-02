@@ -1,14 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import {
-  Drawer,
-  DrawerContent,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -20,7 +18,8 @@ import {
 import LocaleSwitcher from "./LocaleSwitcher";
 import { ModeToggle } from "./ModeToggle";
 
-const Header = () => {
+export default function Header() {
+  const { data: session } = useSession();
   const t = useTranslations("Header");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,12 +27,21 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
-  const menuItems = [
+  const menuItems: MenuItem[] = [
     { title: t("nav.home"), href: "/" },
     { title: t("nav.service"), href: "/services" },
     { title: t("nav.createService"), href: "/services/create" },
-    { title: t("nav.login"), href: "/login" },
   ];
+
+  if (session) {
+    menuItems.push({
+      title: t("nav.logout"),
+      href: "#",
+      onClick: () => signOut(),
+    });
+  } else {
+    menuItems.push({ title: t("nav.login"), href: "/login" });
+  }
 
   return (
     <header className="flex justify-between items-center p-4 min-h-[80px]">
@@ -80,11 +88,12 @@ const Header = () => {
       </nav>
     </header>
   );
-};
+}
 
 type MenuItem = {
   title: string;
   href: string;
+  onClick?: () => void;
 };
 
 function MenuDrawer({
@@ -96,10 +105,9 @@ function MenuDrawer({
   setIsOpen: (open: boolean) => void;
   menuItems: MenuItem[];
 }) {
-  const t = useTranslations("Header");
-
-  const handleMenuItemClick = () => {
+  const handleMenuItemClick = (onClick?: () => void) => {
     setIsOpen(false);
+    if (onClick) onClick();
   };
 
   return (
@@ -110,7 +118,7 @@ function MenuDrawer({
             <Link key={index} href={item.href} passHref>
               <div
                 className="bg-muted flex items-center justify-center rounded-lg h-12 cursor-pointer mb-2"
-                onClick={handleMenuItemClick}
+                onClick={() => handleMenuItemClick(item.onClick)}
               >
                 <p>{item.title}</p>
               </div>
@@ -139,7 +147,10 @@ function MainNavigationMenu({
             <NavigationMenuLink
               href={item.href}
               className={navigationMenuTriggerStyle()}
-              onClick={onClose}
+              onClick={() => {
+                onClose();
+                if (item.onClick) item.onClick();
+              }}
             >
               {item.title}
             </NavigationMenuLink>
@@ -151,5 +162,3 @@ function MainNavigationMenu({
     </NavigationMenu>
   );
 }
-
-export default Header;

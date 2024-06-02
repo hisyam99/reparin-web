@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import ServiceItem from "@/components/ServiceItem";
 import DeleteConfirmation from "@/components/DeleteConfirmation";
 
@@ -59,11 +59,7 @@ const ServiceDetail: React.FC = () => {
   return (
     <div className="container mx-auto p-4" style={backgroundStyle}>
       <ServiceItem service={service} />
-      <Button
-        onClick={() => setOpenDeleteDialog(true)}
-      >
-        Delete Service
-      </Button>
+      <Button onClick={() => setOpenDeleteDialog(true)}>Delete Service</Button>
       <DeleteConfirmation
         open={openDeleteDialog}
         onClose={() => setOpenDeleteDialog(false)}

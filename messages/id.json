@@ -3,13 +3,20 @@
     "label": "Ubah Bahasa",
     "locale": "{locale, select, id {🇮🇩 Indonesian} en {🇺🇸 English} other {Unknown}}"
   },
-
+  "Login": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Login",
+    "error": "{error, select, CredentialsSignin {Invalid username or password} other {Unknown error}}"
+  },
   "Header": {
     "nav": {
       "home": "Beranda",
       "service": "Layanan",
       "createService": "Buat Layanan",
-      "login": "Masuk"
+      "login": "Masuk",
+      "logout": "Keluar"
     },
     "drawerTitle": "Navigasi"
   },
