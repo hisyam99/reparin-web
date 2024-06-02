@@ -15,8 +15,8 @@
       "home": "Home",
       "service": "Service",
       "createService": "Create Service",
-      "login": "Login",
-      "logout": "Logout"
+      "login": "Sign In",
+      "logout": "Sign Out"
     },
     "drawerTitle": "Navigation"
   },
