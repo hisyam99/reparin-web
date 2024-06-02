@@ -12,6 +12,7 @@
   },
   "Header": {
     "nav": {
+      "title": "FixITnow",
       "home": "Home",
       "service": "Service",
       "createService": "Create Service",

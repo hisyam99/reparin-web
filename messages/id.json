@@ -12,6 +12,7 @@
   },
   "Header": {
     "nav": {
+      "title": "FixITnow",
       "home": "Beranda",
       "service": "Layanan",
       "createService": "Buat Layanan",

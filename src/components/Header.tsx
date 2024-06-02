@@ -39,9 +39,10 @@ const Header = () => {
           <Link href="/" passHref>
             <Image
               src="/icon/fixitnow-icon.png"
-              alt="Company Logo"
+              alt={t("nav.title")}
               width={125}
               height={125}
+              priority
             />
           </Link>
         </div>
