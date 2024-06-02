@@ -3,10 +3,7 @@ import { withAuth } from "next-auth/middleware";
 import createIntlMiddleware from "next-intl/middleware";
 import { locales } from "./config";
 
-const privatePages = [
-  "/services/(.*)",
-  // add more private pages here
-];
+const privatePages = ["/dashboard", "/dashboard/(.*)", "/services/(.*)"];
 
 const intlMiddleware = createIntlMiddleware({
   locales,
@@ -14,17 +11,14 @@ const intlMiddleware = createIntlMiddleware({
   defaultLocale: "id",
 });
 
-const authMiddleware = withAuth(
-  (req) => intlMiddleware(req),
-  {
-    callbacks: {
-      authorized: ({ token }) => token != null,
-    },
-    pages: {
-      signIn: "/login",
-    },
-  }
-);
+const authMiddleware = withAuth((req) => intlMiddleware(req), {
+  callbacks: {
+    authorized: ({ token }) => token != null,
+  },
+  pages: {
+    signIn: "/login",
+  },
+});
 
 export default function middleware(req: NextRequest) {
   const privatePathnameRegex = RegExp(
