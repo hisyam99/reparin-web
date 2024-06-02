@@ -18,28 +18,104 @@ export function CarouselPlugin() {
   const testimonials = [
     {
       id: 1,
-      name: "John Doe",
-      comment: "Great service! Fixed my laptop in no time.",
+      name: "Budi Santoso",
+      comment: "Servisnya mantap banget! Laptop saya jadi kinclong lagi.",
     },
     {
       id: 2,
-      name: "Jane Smith",
-      comment: "Very professional and reliable. Highly recommended.",
+      name: "Ridwan Kevin",
+      comment:
+        "Profesional abis! Sangat bisa diandalkan. Sangat direkomendasikan deh.",
     },
     {
       id: 3,
-      name: "David Brown",
-      comment: "Excellent customer service. Will use again for sure.",
+      name: "Agus Salim",
+      comment: "Pelayanan pelanggan yang top banget. Pasti bakal balik lagi.",
     },
     {
       id: 4,
-      name: "Emily White",
-      comment: "Impressive work! My phone looks brand new.",
+      name: "Cak Lemes Hemsworth",
+      comment: "Kerjaannya keren! HP saya jadi kayak baru lagi.",
     },
     {
       id: 5,
-      name: "Michael Johnson",
-      comment: "Fast and efficient. Couldn't be happier with the result.",
+      name: "Joko Widodo",
+      comment: "Cepat dan efisien. Senang banget sama hasilnya.",
+    },
+    {
+      id: 6,
+      name: "Andre Depp",
+      comment: "Mantul banget, rek! Laptopku jadi wush wush lagi.",
+    },
+    {
+      id: 7,
+      name: "Ahmad Dhani",
+      comment: "Pelayanannya asoy geboy, barang langsung kinclong.",
+    },
+    {
+      id: 8,
+      name: "Iwan Fals",
+      comment: "Servisnya kayak lagu galau, bikin hati tenang.",
+    },
+    {
+      id: 9,
+      name: "Parto Cruise",
+      comment: "HP aku jadi kayak habis disulap, wow banget!",
+    },
+    {
+      id: 10,
+      name: "Raffi Ahmad",
+      comment: "Cepet banget, baru ditinggal ngopi udah beres!",
+    },
+    {
+      id: 11,
+      name: "Pandji Downey Jr.",
+      comment: "Profesional, cekatan, dan ramah banget!",
+    },
+    {
+      id: 12,
+      name: "Bambang Pamungkas",
+      comment: "Laptopku jadi kayak baru beli, padahal udah jadul.",
+    },
+    {
+      id: 13,
+      name: "Tukul Arwana",
+      comment: "Lucu tapi beneran, servisnya oke punya!",
+    },
+    {
+      id: 14,
+      name: "Indro Pitt",
+      comment: "Top markotop! Layaknya perpaduan antara keseruan Indro Warkop dan ketampanan Brad Pitt.",
+    },
+    {
+      id: 15,
+      name: "Eko Patrio",
+      comment: "Sumpah, puas banget! Laptop kayak lahir kembali.",
+    },
+    {
+      id: 16,
+      name: "Andhika Pratama",
+      comment: "Profesional, pelayanannya nggak kalah sama di luar negeri.",
+    },
+    {
+      id: 17,
+      name: "Desy Ratnasari",
+      comment: "Servisnya bener-bener menyentuh hati. Recommended!",
+    },
+    {
+      id: 18,
+      name: "Cak Lontong DiCaprio",
+      comment: "HP yang tadinya mati suri, sekarang hidup lagi!",
+    },
+    {
+      id: 19,
+      name: "Sule Clooney",
+      comment: "Servisnya wow!",
+    },
+    {
+      id: 20,
+      name: "Tarzan Ipin",
+      comment: "Profesional abis! kece.",
     },
   ];
 
