@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center ">
-      <section className="w-full text-center py-12 relative">
+      <section className="w-full text-center py-16 relative">
         <div
           className="absolute inset-0 z-0 bg-cover bg-center brightness-50"
           style={{ backgroundImage: "url('/background.jpg')" }}
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-5xl grid lg:grid-cols-3 gap-8 m-8">
+      <section className="container grid lg:grid-cols-3 gap-8 m-8">
         <div className="rounded-lg border border-gray-300 p-6 hover:bg-gray-100 hover:dark:bg-neutral-800/30">
           <h2 className="text-2xl font-semibold mb-3">
             {t("laptopRepairsTitle")}
@@ -45,7 +45,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-5xl m-8">
+      <section className="container m-8">
         <h2 className="text-3xl text-center font-semibold mb-6">
           {t("whyChooseUs")}
         </h2>
@@ -77,13 +77,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-5xl text-center">
+      <section className="container text-center">
         <h2 className="text-3xl font-semibold mb-6">{t("testimoni")}</h2>
         <p className="text-lg mb-6">{t("description")}</p>
         <CarouselPlugin />
       </section>
 
-      <section className="max-w-5xl text-center m-8">
+      <section className="container text-center m-8">
         <h2 className="text-3xl font-semibold mb-6">{t("getInTouch")}</h2>
         <p className="text-lg mb-6">{t("getInTouchMessage")}</p>
         <a
