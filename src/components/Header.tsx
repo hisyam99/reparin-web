@@ -17,20 +17,42 @@ import {
 import LocaleSwitcher from "./LocaleSwitcher";
 import { ModeToggle } from "./ModeToggle";
 import UserActionButton from "./UserActionButton";
+import { useSession } from "next-auth/react";
+import SignInButton from "./SignInButton";
+
+type MenuItem = {
+  title: string;
+  href: string;
+  onClick?: () => void;
+};
 
 const Header = () => {
+  const { data: session } = useSession();
   const t = useTranslations("Header");
   const [isOpen, setIsOpen] = useState(false);
+
+  const getMenuItems = (): MenuItem[] => {
+    const updatedMenuItems = [
+      { title: t("nav.home"), href: "/" },
+      { title: t("nav.service"), href: "/services" },
+      { title: t("nav.createService"), href: "/services/create" },
+    ];
+
+    if (session) {
+      updatedMenuItems.push({
+        title: t("nav.dashboard"),
+        href: "/dashboard",
+      });
+    }
+
+    return updatedMenuItems;
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const menuItems = [
-    { title: t("nav.home"), href: "/" },
-    { title: t("nav.service"), href: "/services" },
-    { title: t("nav.createService"), href: "/services/create" },
-  ];
+  const menuItems = getMenuItems();
 
   return (
     <header>
@@ -46,44 +68,42 @@ const Header = () => {
             />
           </Link>
         </div>
-        <div className="block md:hidden">
-          <Button variant="outline" onClick={toggleMenu}>
-            <span className="sr-only">Toggle menu</span>
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </Button>
-          <MenuDrawer
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            menuItems={menuItems}
-          />
+        <div className="flex">
+          <div className="mx-4 block md:hidden">
+            <Button variant="outline" onClick={toggleMenu}>
+              <span className="sr-only">Toggle menu</span>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </Button>
+            <MenuDrawer
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              menuItems={menuItems}
+            />
+          </div>
+          <nav className="hidden md:block mx-4">
+            <MainNavigationMenu
+              menuItems={menuItems}
+              onClose={() => setIsOpen(false)}
+            />
+          </nav>
+          <UserActionButton />
         </div>
-        <nav className="hidden md:block">
-          <MainNavigationMenu
-            menuItems={menuItems}
-            onClose={() => setIsOpen(false)}
-          />
-        </nav>
       </div>
     </header>
   );
-};
-
-type MenuItem = {
-  title: string;
-  href: string;
 };
 
 function MenuDrawer({
@@ -95,8 +115,6 @@ function MenuDrawer({
   setIsOpen: (open: boolean) => void;
   menuItems: MenuItem[];
 }) {
-  const t = useTranslations("Header");
-
   const handleMenuItemClick = () => {
     setIsOpen(false);
   };
@@ -115,7 +133,6 @@ function MenuDrawer({
               </div>
             </Link>
           ))}
-          <UserActionButton />
           <LocaleSwitcher />
           <ModeToggle />
         </div>
@@ -147,7 +164,6 @@ function MainNavigationMenu({
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
-        <UserActionButton />
       </NavigationMenuList>
     </NavigationMenu>
   );

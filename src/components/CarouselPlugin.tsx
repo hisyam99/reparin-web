@@ -55,7 +55,7 @@ export function CarouselPlugin() {
     {
       id: 8,
       name: "Iwan Fals",
-      comment: "Servisnya kayak lagu galau, bikin hati tenang.",
+      comment: "Servisnya kayak lagu galau, bikin kangen.",
     },
     {
       id: 9,

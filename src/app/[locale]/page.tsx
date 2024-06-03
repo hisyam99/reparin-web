@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { CarouselPlugin } from "@/components/CarouselPlugin";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -86,12 +88,11 @@ export default function Home() {
       <section className="container text-center m-8">
         <h2 className="text-3xl font-semibold mb-6">{t("getInTouch")}</h2>
         <p className="text-lg mb-6">{t("getInTouchMessage")}</p>
-        <a
-          href="/contact"
-          className="inline-block rounded-lg bg-blue-500 text-white px-6 py-3 hover:bg-blue-700"
-        >
-          {t("contactUsButton")}
-        </a>
+        <div className="flex  gap-2  justify-center">
+          <Link href="/contact">
+            <Button className="items-center">Contact</Button>
+          </Link>
+        </div>
       </section>
     </main>
   );
