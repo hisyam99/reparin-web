@@ -138,7 +138,7 @@ export function CarouselPlugin() {
           >
             <div className="p-1">
               <Card className="h-32">
-                <CardContent className="flex items-center justify-center p-6">
+                <CardContent className="flex items-center justify-center p-6 ">
                   <div>
                     <h4 className="text-xl font-semibold mb-2">
                       {testimonial.name}
