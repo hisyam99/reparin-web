@@ -37,7 +37,7 @@ const Header = () => {
             />
           </Link>
         </div>
-        <div className="flex">
+        <div className="flex items-center">
           <div className="mx-4 block md:hidden">
             <MenuDrawer menuItems={menuItems} />
           </div>

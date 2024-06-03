@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,67 +12,65 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuShortcut,
 } from "@/components/ui/dropdown-menu";
-import { User, LogOut, Settings } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const SignInButton: React.FC = () => {
   const { data: session } = useSession();
+  const t = useTranslations("Header");
 
   return (
     <>
       {session ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline">
-              {session.user.image ? (
-                <div className="relative h-10 w-10">
-                  <Image
-                    src={session.user.image}
-                    alt={session.user.name || "User image"}
-                    className="inline-block rounded-full"
-                    fill
-                  />
-                </div>
-              ) : (
-                <span className="inline-block h-8 w-8 overflow-hidden rounded-full bg-stone-100">
-                  <svg
-                    className="h-full w-full text-stone-300"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                </span>
-              )}
+            <Button variant="ghost" className="relative h-12 w-12 rounded-full">
+              <Avatar className="h-12 w-12">
+                <AvatarImage
+                  src={session.user?.image ?? ""}
+                  alt={session.user?.name ?? ""}
+                />
+                <AvatarFallback>{session.user?.name?.[0]}</AvatarFallback>
+              </Avatar>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuContent className="w-56" align="end" forceMount>
+            <DropdownMenuLabel className="font-normal">
+              <div className="flex flex-col space-y-1">
+                <p className="text-sm font-medium leading-none">
+                  {session.user?.name}
+                </p>
+                <p className="text-xs leading-none text-muted-foreground">
+                  {session.user?.email}
+                </p>
+              </div>
+            </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem asChild>
                 <Link href="/profile">
-                  <User className="mr-2 h-4 w-4" />
                   <span>Profile</span>
+                  <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/settings">
-                  <Settings className="mr-2 h-4 w-4" />
                   <span>Settings</span>
+                  <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => signOut()}>
-              <LogOut className="mr-2 h-4 w-4" />
-              <span>Log out</span>
+              <span>{t("nav.logout")}</span>
+              <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (
         <Button variant="outline" onClick={() => signIn()}>
-          Sign In
+          {t("nav.login")}
         </Button>
       )}
     </>
