@@ -3,7 +3,13 @@ import { withAuth } from "next-auth/middleware";
 import createIntlMiddleware from "next-intl/middleware";
 import { locales } from "./config";
 
-const privatePages = ["/dashboard", "/dashboard/(.*)", "/services/(.*)"];
+const privatePages = [
+  "/dashboard",
+  "/dashboard/(.*)",
+  "/services/(.*)",
+  "/admin",
+  "/admin/(.*)",
+];
 
 const intlMiddleware = createIntlMiddleware({
   locales,
