@@ -64,7 +64,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <ClientSessionProvider session>
+          <ClientSessionProvider>
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
