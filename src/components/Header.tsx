@@ -1,7 +1,9 @@
+// File 1: /src/components/Header.tsx
+
 "use client";
 
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -30,29 +32,25 @@ const Header = () => {
   const { data: session } = useSession();
   const t = useTranslations("Header");
   const [isOpen, setIsOpen] = useState(false);
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
 
-  const getMenuItems = (): MenuItem[] => {
-    const updatedMenuItems = [
+  useEffect(() => {
+    const updatedMenuItems: MenuItem[] = [
       { title: t("nav.home"), href: "/" },
       { title: t("nav.service"), href: "/services" },
       { title: t("nav.createService"), href: "/services/create" },
     ];
 
     if (session) {
-      updatedMenuItems.push({
-        title: t("nav.dashboard"),
-        href: "/dashboard",
-      });
+      updatedMenuItems.push({ title: t("nav.dashboard"), href: "/dashboard" });
     }
 
-    return updatedMenuItems;
-  };
+    setMenuItems(updatedMenuItems);
+  }, [session, t]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  const menuItems = getMenuItems();
 
   return (
     <header>
