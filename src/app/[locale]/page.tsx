@@ -5,6 +5,8 @@ import { useTranslations } from "next-intl";
 import { CarouselPlugin } from "@/components/CarouselPlugin";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ThreeDCard } from "@/components/ThreeDCard";
+import { ServiceItems } from "@/components/ServiceItems";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -24,30 +26,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container grid lg:grid-cols-3 gap-8 m-8">
-        <div className="rounded-lg border border-gray-300 p-6 hover:bg-gray-100 hover:dark:bg-neutral-800/30">
-          <h2 className="text-2xl font-semibold mb-3">
-            {t("laptopRepairsTitle")}
-          </h2>
-          <p className="text-sm opacity-70">{t("laptopRepairsMessage")}</p>
-        </div>
-
-        <div className="rounded-lg border border-gray-300 p-6 hover:bg-gray-100 hover:dark:bg-neutral-800/30">
-          <h2 className="text-2xl font-semibold mb-3">
-            {t("mobileRepairsTitle")}
-          </h2>
-          <p className="text-sm opacity-70">{t("mobileRepairsMessage")}</p>
-        </div>
-
-        <div className="rounded-lg border border-gray-300 p-6 hover:bg-gray-100 hover:dark:bg-neutral-800/30">
-          <h2 className="text-2xl font-semibold mb-3">
-            {t("tabletRepairsTitle")}
-          </h2>
-          <p className="text-sm opacity-70">{t("tabletRepairsMessage")}</p>
-        </div>
+      <section className="container">
+      <ServiceItems />
       </section>
 
-      <section className="container m-8">
+      <section className="container mb-16">
         <h2 className="text-3xl text-center font-semibold mb-6">
           {t("whyChooseUs")}
         </h2>
