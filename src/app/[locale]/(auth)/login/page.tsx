@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import LoginForm from "@/components/LoginForm";
 import Image from "next/image";
 import { BackButton } from "@/components/BackButton";
-
+import { SkeletonDemo } from "@/components/Skeleton";
 
 export default function Login() {
   const t = useTranslations("Login");
@@ -31,9 +31,7 @@ export default function Login() {
   if (status === "loading" || status === "authenticated") {
     return (
       <div className="relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-        <div className="container mx-auto">
-          <h1 className="text-3xl font-bold mb-4">Loading...</h1>
-        </div>
+        <SkeletonDemo />
       </div>
     );
   }
