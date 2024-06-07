@@ -1,9 +1,8 @@
+// app/LocaleLayout.tsx
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import ClientSessionProvider from "@/components/ClientSessionProvider";
 
 const APP_NAME = "FixITnow";
@@ -23,7 +22,6 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: "default",
     title: APP_DEFAULT_TITLE,
-    // startUpImage: [],
   },
   formatDetection: {
     telephone: false,
@@ -71,9 +69,7 @@ export default async function LocaleLayout({
               enableSystem
               disableTransitionOnChange
             >
-              <Header />
               {children}
-              <Footer />
             </ThemeProvider>
           </ClientSessionProvider>
         </NextIntlClientProvider>
