@@ -1,15 +1,15 @@
-import Header from '@/components/layout/header';
-import Sidebar from '@/components/layout/sidebar';
+import Header from "@/components/layout/header";
+import Sidebar from "@/components/layout/sidebar";
 import BottomNavbar from "@/components/BottomNavbar";
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Next Shadcn Dashboard Starter',
-  description: 'Basic dashboard with Next.js and Shadcn'
+  title: "Next Shadcn Dashboard Starter",
+  description: "Basic dashboard with Next.js and Shadcn",
 };
 
 export default function DashboardLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
@@ -17,9 +17,9 @@ export default function DashboardLayout({
     <>
       <div className="flex h-screen overflow-hidden">
         <Sidebar />
-        <main className="flex-1 overflow-hidden pt-16">{children}</main>
+        <main className="flex-1 overflow-hidden">{children}</main>
       </div>
-      <BottomNavbar /> {/* Add BottomNavbar component */}
+      <BottomNavbar />
     </>
   );
 }
