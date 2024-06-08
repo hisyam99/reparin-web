@@ -17,7 +17,7 @@ const Header = () => {
 
   const getMenuItems = (): MenuItem[] => [
     { title: t("nav.home"), href: "/" },
-    { title: t("nav.service"), href: "/services" },
+    { title: t("nav.dashboard"), href: "/dashboard" },
   ];
 
   const menuItems = getMenuItems();

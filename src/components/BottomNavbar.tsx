@@ -6,45 +6,57 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SVGProps } from "react";
+import SignInButton from "./SignInButton";
 
 export default function BottomNavbar() {
   return (
     <div className="bottom-navbar fixed bottom-0 left-0 right-0 z-50 flex h-16 w-full items-center justify-center bg-white shadow-t dark:bg-gray-950 dark:text-gray-50">
       <nav className="flex w-full max-w-[500px] items-center justify-between px-4">
-        <Link href="/dashboard" className="group flex flex-col items-center justify-center" prefetch={false}>
+        <Link
+          href="/dashboard"
+          className="group flex flex-col items-center justify-center"
+          prefetch={false}
+        >
           <HomeIcon className="h-6 w-6 transition-colors group-hover:text-gray-900 dark:group-hover:text-gray-50" />
           <span className="text-xs font-medium transition-colors group-hover:text-gray-900 dark:group-hover:text-gray-50">
             Dashboard
           </span>
         </Link>
-        <Link href="#" className="group flex flex-col items-center justify-center" prefetch={false}>
+        <Link
+          href="#"
+          className="group flex flex-col items-center justify-center"
+          prefetch={false}
+        >
           <SearchIcon className="h-6 w-6 transition-colors group-hover:text-gray-900 dark:group-hover:text-gray-50" />
           <span className="text-xs font-medium transition-colors group-hover:text-gray-900 dark:group-hover:text-gray-50">
             Search
           </span>
         </Link>
-        <Link href="/services/create" className="group flex flex-col items-center justify-center" prefetch={false}>
-        <Button
-          variant="outline"
-          size="icon"
-          className="h-12 w-12 rounded-full bg-gray-900 text-gray-50 shadow-md transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+        <Link
+          href="/dashboard/services/create"
+          className="group flex flex-col items-center justify-center"
+          prefetch={false}
         >
-          <PlusIcon className="h-6 w-6" />
-        </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-12 w-12 rounded-full bg-gray-900 text-gray-50 shadow-md transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+          >
+            <PlusIcon className="h-6 w-6" />
+          </Button>
         </Link>
-        
-        <Link href="#" className="group flex flex-col items-center justify-center" prefetch={false}>
-          <UserIcon className="h-6 w-6 transition-colors group-hover:text-gray-900 dark:group-hover:text-gray-50" />
-          <span className="text-xs font-medium transition-colors group-hover:text-gray-900 dark:group-hover:text-gray-50">
-            Profile
-          </span>
-        </Link>
-        <Link href="#" className="group flex flex-col items-center justify-center" prefetch={false}>
+
+        <Link
+          href="/dashboard/services"
+          className="group flex flex-col items-center justify-center"
+          prefetch={false}
+        >
           <SettingsIcon className="h-6 w-6 transition-colors group-hover:text-gray-900 dark:group-hover:text-gray-50" />
           <span className="text-xs font-medium transition-colors group-hover:text-gray-900 dark:group-hover:text-gray-50">
-            Settings
+            Services
           </span>
         </Link>
+        <SignInButton />
       </nav>
     </div>
   );

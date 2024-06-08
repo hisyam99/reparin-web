@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import LocaleSwitcher from "./LocaleSwitcher";
 import { ModeToggle } from "./ModeToggle";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 
 type MenuItem = {
   title: string;
@@ -23,7 +23,7 @@ interface MainNavigationMenuProps {
 const MainNavigationMenu: React.FC<MainNavigationMenuProps> = ({
   menuItems,
 }) => {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
 
   return (
     <NavigationMenu>
@@ -40,7 +40,7 @@ const MainNavigationMenu: React.FC<MainNavigationMenuProps> = ({
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
-        {session && (
+        {/* {session && (
           <NavigationMenuItem key="dashboard">
             <NavigationMenuLink
               href="/dashboard"
@@ -49,7 +49,7 @@ const MainNavigationMenu: React.FC<MainNavigationMenuProps> = ({
               Dashboard
             </NavigationMenuLink>
           </NavigationMenuItem>
-        )}
+        )} */}
       </NavigationMenuList>
     </NavigationMenu>
   );

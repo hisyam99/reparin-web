@@ -6,7 +6,6 @@ import { locales } from "./config";
 const privatePages = [
   "/dashboard",
   "/dashboard/(.*)",
-  "/services/(.*)",
   "/admin",
   "/admin/(.*)",
 ];

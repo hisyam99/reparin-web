@@ -7,7 +7,7 @@ import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import LocaleSwitcher from "./LocaleSwitcher";
 import { ModeToggle } from "./ModeToggle";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 
 type MenuItem = {
   title: string;
@@ -21,7 +21,7 @@ interface MenuDrawerProps {
 const MenuDrawer: React.FC<MenuDrawerProps> = ({ menuItems }) => {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("Header");
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -63,7 +63,7 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ menuItems }) => {
                 </div>
               </Link>
             ))}
-            {session && (
+            {/* {session && (
               <Link href="/dashboard" passHref>
                 <div
                   className="bg-muted flex items-center justify-center rounded-lg h-12 cursor-pointer mb-2"
@@ -72,7 +72,7 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ menuItems }) => {
                   <p>{t("nav.dashboard")}</p>
                 </div>
               </Link>
-            )}
+            )} */}
             <LocaleSwitcher />
             <ModeToggle />
           </div>
