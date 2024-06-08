@@ -2,8 +2,8 @@
 
 import { useSession, signIn } from "next-auth/react";
 import { Button } from "@/components/ui/button";
-import UserMenu from "./UserMenu"; // Ubah path sesuai dengan struktur proyek Anda
 import { useTranslations } from "next-intl";
+import { UserNav } from "./layout/user-nav";
 
 const SignInButton: React.FC = () => {
   const { data: session } = useSession();
@@ -12,7 +12,7 @@ const SignInButton: React.FC = () => {
   return (
     <>
       {session ? (
-        <UserMenu session={session} />
+        <UserNav/>
       ) : (
         <Button variant="default" onClick={() => signIn()}>
           {t("nav.login")}

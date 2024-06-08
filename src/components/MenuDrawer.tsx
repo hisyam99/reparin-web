@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
@@ -52,6 +53,17 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ menuItems }) => {
       </Button>
       <Drawer direction="left" open={isOpen} onOpenChange={setIsOpen}>
         <DrawerContent className="h-screen top-0 right-auto left-auto mt-0 w-[300px] rounded-none">
+          <div className="flex pt-4 px-4">
+            <Link href="/" passHref>
+              <Image
+                src="/icon/fixitnow-icon.png"
+                alt="FixITnow"
+                width={125}
+                height={125}
+                priority
+              />
+            </Link>
+          </div>
           <div className="p-4 pb-0 space-y-4">
             {menuItems.map((item, index) => (
               <Link key={index} href={item.href} passHref>

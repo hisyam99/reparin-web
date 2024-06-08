@@ -5,7 +5,6 @@ import { CarouselPlugin } from "@/components/CarouselPlugin";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ServiceItems } from "@/components/ServiceItems";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -78,7 +77,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }
