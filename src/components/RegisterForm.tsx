@@ -36,7 +36,7 @@ interface LoginFormProps {
   onSubmitSuccess: () => void;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
+const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
   const locale = useLocale();
   const t = useTranslations("Login");
   const [error, setError] = useState<string>();
@@ -110,17 +110,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
           </FormItem>
 
           <Button type="submit" className="w-full">
-            Sign In
+            Sign Up
           </Button>
-          <p className="px-8 text-center text-sm text-muted-foreground">
-            Don&apos;t have an account?{" "}
-            <Link
-              href="/register"
-              className="underline underline-offset-4 hover:text-primary"
-            >
-              Register here
-            </Link>
-          </p>
 
           <div className="relative flex items-center">
             <div className="flex-grow border-t border-gray-400"></div>
@@ -159,4 +150,4 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

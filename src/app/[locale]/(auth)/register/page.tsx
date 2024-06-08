@@ -7,13 +7,13 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import LoginForm from "@/components/LoginForm";
+import RegisterForm from "@/components/RegisterForm";
 import Image from "next/image";
 import { BackButton } from "@/components/BackButton";
 import { SkeletonDemo } from "@/components/Skeleton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function Login() {
+export default function Register() {
   const t = useTranslations("Login");
   const router = useRouter();
   const { data: session, status } = useSession();
@@ -24,7 +24,7 @@ export default function Login() {
     }
   }, [status, router]);
 
-  function handleLoginSuccess() {
+  function handleRegisterSuccess() {
     router.refresh();
   }
 
@@ -85,14 +85,14 @@ export default function Login() {
         <Card className="mx-auto w-full max-w-md">
           <CardHeader>
             <BackButton />
-            <CardTitle className="text-center">Login</CardTitle>
+            <CardTitle className="text-center">Register</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex flex-col space-y-4">
               <p className="text-sm text-muted-foreground text-center">
-                Enter your email and password to login
+                Enter your email and password to register
               </p>
-              <LoginForm onSubmitSuccess={handleLoginSuccess} />
+              <RegisterForm onSubmitSuccess={handleRegisterSuccess} />
             </div>
           </CardContent>
         </Card>

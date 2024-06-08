@@ -69,9 +69,17 @@ const SignInButton: React.FC = () => {
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (
-        <Button variant="outline" onClick={() => signIn()}>
-          {t("nav.login")}
-        </Button>
+        <div className="space-x-4">
+          <Button variant="outline" onClick={() => signIn()}>
+            {t("nav.login")}
+          </Button>
+          <Link href="/register" >
+          <Button variant="default">
+            {t("nav.register")}
+          </Button>
+          </Link>
+          
+        </div>
       )}
     </>
   );

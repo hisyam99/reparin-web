@@ -17,6 +17,7 @@
       "service": "Service",
       "createService": "Create Service",
       "dashboard": "Dashboard",
+      "register": "Sign Up",
       "login": "Sign In",
       "logout": "Sign Out"
     },

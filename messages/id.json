@@ -17,6 +17,7 @@
       "service": "Layanan",
       "createService": "Buat Layanan",
       "dashboard": "Dashboard",
+      "register": "Daftar",
       "login": "Masuk",
       "logout": "Keluar"
     },
