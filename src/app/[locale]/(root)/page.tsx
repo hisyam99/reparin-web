@@ -5,23 +5,25 @@ import { CarouselPlugin } from "@/components/CarouselPlugin";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ServiceItems } from "@/components/ServiceItems";
+import { HeroSectionFlipWord } from "@/components/HeroSection/HeroSectionFlipWords";
+import { PlaceholdersAndVanishInputDemo } from "@/components/HeroSection/PlaceholdersAndVanishInputDemo";
+import { GlobeDemo } from "@/components/HeroSection/GlobeDemo";
 
 export default function Home() {
   const t = useTranslations("Home");
 
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center ">
-        <section className="w-full text-center py-16 relative">
-          <div
-            className="absolute inset-0 z-0 bg-cover bg-center brightness-50"
-            style={{ backgroundImage: "url('/background.jpg')" }}
-          ></div>
-          <div className="relative z-10">
-            <h1 className="text-4xl font-bold mb-6 text-white">
-              {t("welcomeTitle")}
-            </h1>
-            <p className="text-lg mb-6 text-white">{t("welcomeMessage")}</p>
+      <main className="flex min-h-screen flex-col">
+        <section className="h-screen w-full flex flex-col md:flex-row items-center justify-center background-custom">
+          <div className="container grid grid-cols-1 lg:grid-cols-2 items-center">
+            <div className="flex-grow md:flex-grow-0 flex">
+              <PlaceholdersAndVanishInputDemo />
+            </div>
+
+            <div className="flex-grow flex items-center justify-center">
+              <GlobeDemo />
+            </div>
           </div>
         </section>
 
@@ -67,8 +69,10 @@ export default function Home() {
           <CarouselPlugin />
         </section>
 
-        <section className="container text-center m-8">
-          <h2 className="text-3xl font-semibold mb-6">{t("getInTouch")}</h2>
+        <section className="container text-center">
+          <h2 className="text-3xl font-semibold mt-8 mb-6">
+            {t("getInTouch")}
+          </h2>
           <p className="text-lg mb-6">{t("getInTouchMessage")}</p>
           <div className="flex  gap-2  justify-center">
             <Link href="/contact">
