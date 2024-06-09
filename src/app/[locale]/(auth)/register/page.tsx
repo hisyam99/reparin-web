@@ -37,26 +37,7 @@ export default function Register() {
   }
 
   return (
-    <div className="relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-      <div className="absolute top-10 left-10">
-        <Image
-          src="/icon/fixitnow-icon.png"
-          alt={t("nav.title")}
-          width={125}
-          height={125}
-          className="w-auto h-auto"
-          priority
-        />
-      </div>
-      <Link
-        href="/register"
-        className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "absolute right-4 top-4 hidden md:right-8 md:top-8"
-        )}
-      >
-        Register
-      </Link>
+    <div className="relative h-screen flex-col items-center justify-center lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
       <div className="relative hidden h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r">
         <div
           className="absolute inset-0 bg-cover bg-center brightness-50"
@@ -81,21 +62,33 @@ export default function Register() {
           </blockquote>
         </div>
       </div>
-      <div className="grid h-full items-center p-4">
-        <Card className="mx-auto w-full max-w-md">
-          <CardHeader>
-            <BackButton />
-            <CardTitle className="text-center">Register</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-col space-y-4">
-              <p className="text-sm text-muted-foreground text-center">
-                Enter your email and password to register
-              </p>
-              <RegisterForm onSubmitSuccess={handleRegisterSuccess} />
-            </div>
-          </CardContent>
-        </Card>
+      <div className="grid p-4 lg:hidden">
+        <Image
+          src="/icon/fixitnow-icon.png"
+          alt={t("nav.title")}
+          width={125}
+          height={125}
+          className="w-auto h-auto"
+          priority
+        />
+      </div>
+      <div className="my-16">
+        <div className="flex flex-col h-full p-4">
+          <Card className="mx-auto w-full max-w-md">
+            <CardHeader>
+              <BackButton />
+              <CardTitle className="text-center">Register</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col space-y-4">
+                <p className="text-sm text-muted-foreground text-center">
+                  Enter your email and password to register
+                </p>
+                <RegisterForm onSubmitSuccess={handleRegisterSuccess} />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
