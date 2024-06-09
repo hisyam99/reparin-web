@@ -72,7 +72,7 @@ export default function Login() {
           priority
         />
       </div>
-      <div className="my-16">
+      <div className="p-4">
         <div className="flex flex-col h-full">
           <Card className="mx-auto w-full max-w-md">
             <CardHeader>
