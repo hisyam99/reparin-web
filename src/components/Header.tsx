@@ -45,10 +45,10 @@ const Header = () => {
   return (
     <header
       className={`supports-backdrop-blur:bg-background/60 sticky left-0 right-0 top-0 z-20 border-b bg-background/95 backdrop-blur transition-all duration-300 items-center ${
-        isScrolled ? "min-h-[60px] p-2" : "min-h-[80px] p-4"
+        isScrolled ? "min-h-[60px] py-2" : "min-h-[80px] py-4"
       }`}
     >
-      <div className={`container flex justify-between items-center `}>
+      <div className={`container flex justify-between items-center px-4`}>
         <div className="flex items-center">
           <Link href="/" passHref>
             <Image

@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { Icons } from '@/components/icons';
-import { cn } from '@/lib/utils';
-import { NavItem } from '@/types';
-import { Dispatch, SetStateAction } from 'react';
-import { useSidebar } from '@/hooks/useSidebar';
+import { Icons } from "@/components/icons";
+import { cn } from "@/lib/utils";
+import { NavItem } from "@/types";
+import { Dispatch, SetStateAction } from "react";
+import { useSidebar } from "@/hooks/useSidebar";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
-  TooltipTrigger
-} from './ui/tooltip';
+  TooltipTrigger,
+} from "./ui/tooltip";
 
 interface DashboardNavProps {
   items: NavItem[];
@@ -24,7 +24,7 @@ interface DashboardNavProps {
 export function DashboardNav({
   items,
   setOpen,
-  isMobileNav = false
+  isMobileNav = false,
 }: DashboardNavProps) {
   const path = usePathname();
   const { isMinimized } = useSidebar();
@@ -33,23 +33,23 @@ export function DashboardNav({
     return null;
   }
 
-  console.log('isActive', isMobileNav, isMinimized);
+  console.log("isActive", isMobileNav, isMinimized);
 
   return (
     <nav className="grid items-start gap-2">
       <TooltipProvider>
         {items.map((item, index) => {
-          const Icon = Icons[item.icon || 'arrowRight'];
+          const Icon = Icons[item.icon || "arrowRight"];
           return (
             item.href && (
               <Tooltip key={index}>
                 <TooltipTrigger asChild>
                   <Link
-                    href={item.disabled ? '/' : item.href}
+                    href={item.disabled ? "/" : item.href}
                     className={cn(
-                      'flex items-center gap-2 overflow-hidden rounded-md py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground',
-                      path === item.href ? 'bg-accent' : 'transparent',
-                      item.disabled && 'cursor-not-allowed opacity-80'
+                      "flex items-center gap-2 overflow-hidden rounded-md py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground",
+                      path === item.href ? "bg-accent" : "transparent",
+                      item.disabled && "cursor-not-allowed opacity-80"
                     )}
                     onClick={() => {
                       if (setOpen) setOpen(false);
@@ -60,7 +60,7 @@ export function DashboardNav({
                     {isMobileNav || (!isMinimized && !isMobileNav) ? (
                       <span className="mr-2 truncate">{item.title}</span>
                     ) : (
-                      ''
+                      ""
                     )}
                   </Link>
                 </TooltipTrigger>
@@ -68,7 +68,7 @@ export function DashboardNav({
                   align="center"
                   side="right"
                   sideOffset={8}
-                  className={!isMinimized ? 'hidden' : 'inline-block'}
+                  className={!isMinimized ? "hidden" : "inline-block"}
                 >
                   {item.title}
                 </TooltipContent>
