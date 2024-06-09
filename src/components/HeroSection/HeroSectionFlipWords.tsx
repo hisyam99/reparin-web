@@ -6,7 +6,7 @@ export function HeroSectionFlipWord() {
 
   return (
     <div>
-      <div className="text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
+      <div className="text-4xl font-normal text-neutral-600 dark:text-neutral-400">
         FixITnow
         <br />
         Perbaikan

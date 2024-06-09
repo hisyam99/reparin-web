@@ -4,30 +4,50 @@ import { useTranslations } from "next-intl";
 import { CarouselPlugin } from "@/components/CarouselPlugin";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
 import { ServiceItems } from "@/components/ServiceItems";
 import { HeroSectionFlipWord } from "@/components/HeroSection/HeroSectionFlipWords";
 import { PlaceholdersAndVanishInputDemo } from "@/components/HeroSection/PlaceholdersAndVanishInputDemo";
 import { GlobeDemo } from "@/components/HeroSection/GlobeDemo";
+import { useRef } from "react";
 
 export default function Home() {
   const t = useTranslations("Home");
+  const nextSectionRef = useRef<HTMLDivElement>(null);
+
+  const scrollToNextSection = () => {
+    if (nextSectionRef.current) {
+      nextSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
       <main className="flex min-h-screen flex-col">
-        <section className="h-screen w-full flex flex-col md:flex-row items-center justify-center background-custom">
-          <div className="container grid grid-cols-1 lg:grid-cols-2 items-center">
-            <div className="flex-grow md:flex-grow-0 flex">
-              <PlaceholdersAndVanishInputDemo />
+        <section className="w-full items-center background-custom">
+          <div className="mt-16 flex flex-col md:flex-row items-center justify-center">
+            <div className="container grid grid-cols-1 lg:grid-cols-2 items-center">
+              <div className="flex flex-col items-center">
+                <PlaceholdersAndVanishInputDemo />
+              </div>
+              <div className="flex-grow flex items-center justify-center">
+                <GlobeDemo />
+              </div>
             </div>
-
-            <div className="flex-grow flex items-center justify-center">
-              <GlobeDemo />
-            </div>
+          </div>
+          <div className="flex justify-center mt-8">
+            <Button
+              variant="ghost"
+              className="items-center"
+              onClick={scrollToNextSection}
+            >
+              <ChevronDown />
+              Lihat Selengkapmya . . .
+            </Button>
           </div>
         </section>
 
-        <section className="container">
+        <section ref={nextSectionRef} className="container">
           <ServiceItems />
         </section>
 

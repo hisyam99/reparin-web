@@ -23,7 +23,7 @@ const Header = () => {
   const menuItems = getMenuItems();
 
   return (
-    <header>
+    <header className="sticky top-0 z-50">
       <div className="container flex justify-between items-center p-4 min-h-[80px]">
         <div className="flex items-center">
           <Link href="/" passHref>

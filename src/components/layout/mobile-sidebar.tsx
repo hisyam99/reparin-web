@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { navItems } from "@/constants/data";
-import { MenuIcon } from "lucide-react";
 import { DashboardNav } from "@/components/dashboard-nav";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 
@@ -26,7 +25,20 @@ export function MobileSidebar({ className }: SidebarProps) {
     <>
       <Button variant="outline" onClick={toggleMenu}>
         <span className="sr-only">Toggle menu</span>
-        <MenuIcon />
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
       </Button>
       <Drawer direction="left" open={isOpen} onOpenChange={setIsOpen}>
         <DrawerContent className="h-screen top-0 right-auto left-auto mt-0 w-[300px] rounded-none">

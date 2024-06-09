@@ -35,8 +35,8 @@ export function PlaceholdersAndVanishInputDemo() {
         }}
         className="div"
       >
-        <h2 className="text-4xl font-bold ">Ketik, Cari, Temukan !</h2>
-        <p className="text-lg font-normal max-w-md mt-2 mx-auto">
+        <h2 className="text-4xl font-bold">Ketik, Cari, Temukan !</h2>
+        <p className="text-lg font-normal">
           Jasa servis terbaik dimulai dari sini !
         </p>
       </motion.div>

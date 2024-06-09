@@ -10,7 +10,7 @@ import { UserNav } from "./layout/user-nav";
 
 export default function BottomNavbar() {
   return (
-    <div className="bottom-navbar fixed bottom-0 left-0 right-0 z-50 flex h-16 w-full items-center justify-center bg-white shadow-t dark:bg-gray-950 dark:text-gray-50">
+    <div className="sticky flex md:hidden bottom-0 left-0 right-0 z-50 h-16 w-full items-center justify-center bg-white shadow-t dark:bg-gray-950 dark:text-gray-50">
       <nav className="flex w-full max-w-[500px] items-center justify-between px-4">
         <Link
           href="/dashboard"
