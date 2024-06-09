@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <header className="supports-backdrop-blur:bg-background/60 sticky left-0 right-0 top-0 z-20 border-b bg-background/95 backdrop-blur">
-      <div className="container flex justify-between items-center py-4">
+      <div className="container flex justify-between items-center p-4">
         <div className="flex items-center">
           <Link href="/" passHref>
             <Image
