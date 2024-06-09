@@ -8,7 +8,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import LocaleSwitcher from "./LocaleSwitcher";
-import { ModeToggle } from "./ModeToggle";
+import ThemeToggle from "@/components/layout/ThemeToggle/theme-toggle";
 // import { useSession } from "next-auth/react";
 
 type MenuItem = {
@@ -28,7 +28,7 @@ const MainNavigationMenu: React.FC<MainNavigationMenuProps> = ({
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        <ModeToggle />
+        <ThemeToggle />
         <LocaleSwitcher />
         {menuItems.map((item, index) => (
           <NavigationMenuItem key={index}>

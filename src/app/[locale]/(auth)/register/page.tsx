@@ -44,14 +44,16 @@ export default function Register() {
           style={{ backgroundImage: 'url("/background-form.jpg")' }}
         />
         <div className="relative flex items-center text-lg font-medium">
-          <Image
-            src="/icon/fixitnow-icon.png"
-            alt={t("nav.title")}
-            width={125}
-            height={125}
-            className="w-auto h-auto"
-            priority
-          />
+          <Link href="/" passHref>
+            <Image
+              src="/icon/fixitnow-icon.png"
+              alt="FixITnow"
+              width={125}
+              height={125}
+              className="w-auto h-auto"
+              priority
+            />
+          </Link>
         </div>
         <div className="relative mt-auto">
           <blockquote className="space-y-2">
@@ -63,14 +65,16 @@ export default function Register() {
         </div>
       </div>
       <div className="grid p-4 lg:hidden">
-        <Image
-          src="/icon/fixitnow-icon.png"
-          alt={t("nav.title")}
-          width={125}
-          height={125}
-          className="w-auto h-auto"
-          priority
-        />
+        <Link href="/" passHref>
+          <Image
+            src="/icon/fixitnow-icon.png"
+            alt="FixITnow"
+            width={125}
+            height={125}
+            className="w-auto h-auto"
+            priority
+          />
+        </Link>
       </div>
       <div className="p-4">
         <div className="flex flex-col h-full">

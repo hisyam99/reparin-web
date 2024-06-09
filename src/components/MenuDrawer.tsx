@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import LocaleSwitcher from "./LocaleSwitcher";
-import { ModeToggle } from "./ModeToggle";
+import ThemeToggle from "@/components/layout/ThemeToggle/theme-toggle";
 // import { useSession } from "next-auth/react";
 
 type MenuItem = {
@@ -109,7 +109,7 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ menuItems }) => {
               </Link>
             )} */}
             <LocaleSwitcher />
-            <ModeToggle />
+            <ThemeToggle />
           </div>
         </DrawerContent>
       </Drawer>
