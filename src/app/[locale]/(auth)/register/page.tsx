@@ -73,7 +73,7 @@ export default function Register() {
         />
       </div>
       <div className="p-4">
-        <div className="flex flex-col h-full p-4">
+        <div className="flex flex-col h-full">
           <Card className="mx-auto w-full max-w-md">
             <CardHeader>
               <BackButton />
