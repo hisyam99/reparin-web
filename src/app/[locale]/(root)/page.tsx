@@ -35,14 +35,14 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center">
             <Button
               variant="ghost"
               className="items-center"
               onClick={scrollToNextSection}
             >
               <ChevronDown />
-              Lihat Selengkapmya . . .
+              Lihat Selengkapnya . . .
             </Button>
           </div>
         </section>
