@@ -29,11 +29,11 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-2">
+          <LocaleSwitcher />
+          <ThemeToggle />
           <div className="hidden md:block">
             <UserNav />
           </div>
-          <LocaleSwitcher/>
-          <ThemeToggle />
         </div>
       </nav>
     </header>

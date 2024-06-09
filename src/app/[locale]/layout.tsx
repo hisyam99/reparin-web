@@ -4,6 +4,7 @@ import { getMessages } from "next-intl/server";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import ClientSessionProvider from "@/components/ClientSessionProvider";
+import NextTopLoader from "nextjs-toploader";
 
 const APP_NAME = "FixITnow";
 const APP_DEFAULT_TITLE = "FixITnow";
@@ -69,6 +70,7 @@ export default async function LocaleLayout({
               enableSystem
               disableTransitionOnChange
             >
+              <NextTopLoader color="#ccfd86" showSpinner={false} />
               {children}
             </ThemeProvider>
           </ClientSessionProvider>
