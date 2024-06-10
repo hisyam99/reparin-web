@@ -5,8 +5,6 @@ import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import RegisterForm from "@/components/RegisterForm";
 import Image from "next/image";
 import { BackButton } from "@/components/BackButton";
@@ -28,13 +26,13 @@ export default function Register() {
     router.refresh();
   }
 
-  if (status === "loading" || status === "authenticated") {
-    return (
-      <div className="relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-        <SkeletonDemo />
-      </div>
-    );
-  }
+  // if (status === "loading" || status === "authenticated") {
+  //   return (
+  //     <div className="relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+  //       <SkeletonDemo />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="relative h-screen flex-col items-center justify-center lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">

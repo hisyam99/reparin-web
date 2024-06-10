@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Terminal } from "lucide-react";
+import { Terminal, Loader } from "lucide-react"; // Import the Loader icon
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { PasswordField } from "@/components/PasswordField";
 
@@ -40,6 +40,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
   const locale = useLocale();
   const t = useTranslations("Login");
   const [error, setError] = useState<string>();
+  const [isLoading, setIsLoading] = useState<boolean>(false); // Add loading state
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -49,6 +50,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
   });
 
   const onSubmit = async (formData: FormSchemaType) => {
+    setIsLoading(true); // Set loading state to true
     try {
       const result = await signIn("credentials", {
         username: formData.username,
@@ -63,10 +65,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
       }
     } catch (err) {
       setError((err as Error).message);
+    } finally {
+      setIsLoading(false); // Set loading state to false
     }
   };
 
   const handleGoogleSignIn = async () => {
+    setIsLoading(true); // Set loading state to true
     try {
       const result = await signIn("google", { redirect: false });
 
@@ -77,6 +82,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
       }
     } catch (err) {
       setError((err as Error).message);
+    } finally {
+      setIsLoading(false); // Set loading state to false
     }
   };
 
@@ -109,8 +116,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
             />
           </FormItem>
 
-          <Button type="submit" className="w-full">
-            Sign In
+          <Button type="submit" className="w-full" disabled={isLoading}>
+            {isLoading ? (
+              <Loader className="mr-2 h-4 w-4 animate-spin" />
+            ) : (
+              "Sign In"
+            )}
           </Button>
           <p className="px-8 text-center text-sm text-muted-foreground">
             Don&apos;t have an account?{" "}
@@ -133,17 +144,22 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
             variant="outline"
             onClick={handleGoogleSignIn}
             className="w-full"
+            disabled={isLoading}
           >
-            <div className="flex items-center">
-              <Image
-                src="/icon/google-icon.svg"
-                alt="Google Logo"
-                width={20}
-                height={20}
-                className="mr-2"
-              />
-              <span>Continue with Google</span>
-            </div>
+            {isLoading ? (
+              <Loader className="mr-2 h-4 w-4 animate-spin" />
+            ) : (
+              <div className="flex items-center">
+                <Image
+                  src="/icon/google-icon.svg"
+                  alt="Google Logo"
+                  width={20}
+                  height={20}
+                  className="mr-2"
+                />
+                <span>Continue with Google</span>
+              </div>
+            )}
           </Button>
 
           {error && (
