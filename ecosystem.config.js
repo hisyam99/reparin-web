@@ -6,7 +6,7 @@ module.exports = {
   deploy : {
     production : {
       user : 'hisyamkamil99',
-      host : '34.46.7.132',
+      host : 'reparin-web',
       ref  : 'origin/dev',
       repo : 'git@github.com:hisyam99/sipinter-web.git',
       path : '/home/hisyamkamil99/sipinter-web',
