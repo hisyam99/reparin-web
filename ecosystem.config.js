@@ -1,12 +1,6 @@
 module.exports = {
   apps : [{
     script: 'bun start',
-    env: {
-      COMMON_VARIABLE: 'true'
-    },
-    env_production : {
-      NODE_ENV: 'production'
-    }
   }],
 
   deploy : {
