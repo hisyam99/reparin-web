@@ -91,26 +91,26 @@
   "founders": {
     "1": {
       "name": "Muhammad Hisyam Kamil",
-      "title": "Co-Founder",
-      "description": "yang ngoding",
+      "title": "Hacker",
+      "description": "Responsible for the creation of website/application frontend and backend",
       "image": "/founders/hisyam.jpg"
     },
     "2": {
       "name": "Farriel Arianta Akbar Pratama",
-      "title": "Co-Founder",
-      "description": "yang desain logo",
+      "title": "Hipster",
+      "description": "Responsible for brand design creation and building branding",
       "image": "/founders/farriel.jpg"
     },
     "3": {
       "name": "Ahmad Naufal Luthfan Marzuqi",
-      "title": "Co-Founder",
-      "description": "yang desain ui/ux, yang ngasih nama",
+      "title": "Hustler",
+      "description": "Responsible for managing the startup's operational mechanisms",
       "image": "/founders/naufal.jpg"
     },
     "4": {
       "name": "Nizam Avif Anhari",
-      "title": "Co-Founder",
-      "description": "yang desain ui/ux",
+      "title": "Hipster",
+      "description": "Responsible for creating UI/UX design",
       "image": "/founders/nizam.jpg"
     }
   },
