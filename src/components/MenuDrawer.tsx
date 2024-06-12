@@ -9,6 +9,7 @@ import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import LocaleSwitcher from "./LocaleSwitcher";
 import ThemeToggle from "@/components/layout/ThemeToggle/theme-toggle";
+import { useTheme } from "next-themes";
 // import { useSession } from "next-auth/react";
 
 type MenuItem = {
@@ -24,6 +25,8 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ menuItems }) => {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("Header");
   const pathname = usePathname();
+  const { theme, systemTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
   // const { data: session } = useSession();
 
   const toggleMenu = () => {
@@ -56,15 +59,19 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ menuItems }) => {
       <Drawer direction="left" open={isOpen} onOpenChange={setIsOpen}>
         <DrawerContent className="h-screen top-0 right-auto left-auto mt-0 w-[300px] rounded-none">
           <div className="flex justify-between items-center pt-4 px-4">
-            <Link href="/" passHref>
-              <Image
-                src="/icon/fixitnow-icon.png"
-                alt="FixITnow"
-                width={125}
-                height={125}
-                priority
-              />
-            </Link>
+          <Link href="/" passHref>
+            <Image
+              src={
+                currentTheme === "dark"
+                  ? "/icon/fixitnow-icon-dark.png"
+                  : "/icon/fixitnow-icon.png"
+              }
+              alt={t("nav.title")}
+              width={125}
+              height={125}
+              priority
+            />
+          </Link>
             <Button variant="ghost" onClick={toggleMenu}>
               <svg
                 className="w-6 h-6"

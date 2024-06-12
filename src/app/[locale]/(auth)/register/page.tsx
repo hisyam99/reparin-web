@@ -8,11 +8,13 @@ import Link from "next/link";
 import RegisterForm from "@/components/RegisterForm";
 import Image from "next/image";
 import { BackButton } from "@/components/BackButton";
-import { SkeletonDemo } from "@/components/Skeleton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useTheme } from "next-themes";
 
 export default function Register() {
   const t = useTranslations("Login");
+  const { theme, systemTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
   const router = useRouter();
   const { data: session, status } = useSession();
 
@@ -44,11 +46,14 @@ export default function Register() {
         <div className="relative flex items-center text-lg font-medium">
           <Link href="/" passHref>
             <Image
-              src="/icon/fixitnow-icon.png"
-              alt="FixITnow"
+              src={
+                currentTheme === "dark"
+                  ? "/icon/fixitnow-icon-dark.png"
+                  : "/icon/fixitnow-icon.png"
+              }
+              alt={t("nav.title")}
               width={125}
               height={125}
-              className="w-auto h-auto"
               priority
             />
           </Link>
@@ -65,11 +70,14 @@ export default function Register() {
       <div className="grid p-4 lg:hidden">
         <Link href="/" passHref>
           <Image
-            src="/icon/fixitnow-icon.png"
-            alt="FixITnow"
+            src={
+              currentTheme === "dark"
+                ? "/icon/fixitnow-icon-dark.png"
+                : "/icon/fixitnow-icon.png"
+            }
+            alt={t("nav.title")}
             width={125}
             height={125}
-            className="w-auto h-auto"
             priority
           />
         </Link>

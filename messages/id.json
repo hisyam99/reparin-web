@@ -4,6 +4,9 @@
     "locale": "{locale, select, id {🇮🇩 Indonesian} en {🇺🇸 English} other {Unknown}}"
   },
   "Login": {
+    "nav": {
+      "title": "reparin"
+    },
     "title": "Login",
     "username": "Username",
     "password": "Password",

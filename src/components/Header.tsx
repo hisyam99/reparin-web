@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import SignInButton from "./SignInButton";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 const MenuDrawer = dynamic(() => import("./MenuDrawer"), { ssr: false });
 import MainNavigationMenu from "./MainNavigationMenu";
@@ -18,6 +19,8 @@ type MenuItem = {
 const Header = () => {
   const t = useTranslations("Header");
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, systemTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
 
   const getMenuItems = (): MenuItem[] => [
     { title: t("nav.home"), href: "/" },
@@ -52,7 +55,11 @@ const Header = () => {
         <div className="flex items-center">
           <Link href="/" passHref>
             <Image
-              src="/icon/fixitnow-icon.png"
+              src={
+                currentTheme === "dark"
+                  ? "/icon/fixitnow-icon-dark.png"
+                  : "/icon/fixitnow-icon.png"
+              }
               alt={t("nav.title")}
               width={isScrolled ? 100 : 125}
               height={isScrolled ? 100 : 125}

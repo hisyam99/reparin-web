@@ -6,9 +6,9 @@ import { ThemeProvider } from "@/components/theme-provider";
 import ClientSessionProvider from "@/components/ClientSessionProvider";
 import NextTopLoader from "nextjs-toploader";
 
-const APP_NAME = "FixITnow";
-const APP_DEFAULT_TITLE = "FixITnow";
-const APP_TITLE_TEMPLATE = "%s - FixITnow";
+const APP_NAME = "reparin";
+const APP_DEFAULT_TITLE = "reparin";
+const APP_TITLE_TEMPLATE = "%s - reparin";
 const APP_DESCRIPTION = "Cepat, Dekat, Terpercaya.";
 
 export const metadata: Metadata = {

@@ -7,10 +7,13 @@ import { Button } from "@/components/ui/button";
 import { navItems } from "@/constants/data";
 import { DashboardNav } from "@/components/dashboard-nav";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
+import { useTheme } from "next-themes";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function MobileSidebar({ className }: SidebarProps) {
+  const { theme, systemTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -45,15 +48,19 @@ export function MobileSidebar({ className }: SidebarProps) {
           <ScrollArea className="h-screen">
             <div className="p-4 pb-0 space-y-6">
               <div className="flex p-4">
-                <Link href="/" passHref>
-                  <Image
-                    src="/icon/fixitnow-icon.png"
-                    alt="FixITnow"
-                    width={125}
-                    height={125}
-                    priority
-                  />
-                </Link>
+              <Link href="/" passHref>
+            <Image
+              src={
+                currentTheme === "dark"
+                  ? "/icon/fixitnow-icon-dark.png"
+                  : "/icon/fixitnow-icon.png"
+              }
+              alt="reparin"
+              width={125}
+              height={125}
+              priority
+            />
+          </Link>
               </div>
               <div className="px-4">
                 <h2 className="mb-4 text-lg font-semibold tracking-tight">
