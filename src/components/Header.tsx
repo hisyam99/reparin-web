@@ -23,6 +23,7 @@ const Header = () => {
   const currentTheme = theme === "system" ? systemTheme : theme;
 
   const getMenuItems = (): MenuItem[] => [
+    { title: t("nav.about"), href: "/about" },
     { title: t("nav.home"), href: "/" },
     { title: t("nav.dashboard"), href: "/dashboard" },
   ];

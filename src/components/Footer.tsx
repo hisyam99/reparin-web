@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   const t = useTranslations("Footer");
 
   return (
-    <footer className="footerStyle text-center p-4 mt-auto">
+    <footer className="footerStyle text-center p-4 mt-auto ">
       <div className="container mx-auto py-8 text-justify">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>

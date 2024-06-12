@@ -16,6 +16,7 @@
   "Header": {
     "nav": {
       "title": "reparin",
+      "about": "Tentang Kami",
       "home": "Beranda",
       "service": "Layanan",
       "createService": "Buat Layanan",
@@ -26,7 +27,6 @@
     },
     "drawerTitle": "Navigasi"
   },
-
   "Home": {
     "welcomeTitle": "Selamat Datang di Layanan Perbaikan Elektronik Anda",
     "welcomeMessage": "Kami menyediakan layanan perbaikan yang cepat, andal, dan terjangkau untuk semua perangkat elektronik Anda.",
@@ -43,11 +43,11 @@
     "qualityPartsMessage": "Kami hanya menggunakan bagian berkualitas tinggi untuk semua perbaikan kami guna memastikan daya tahan dan kinerja.",
     "customerSatisfactionTitle": "Kepuasan Pelanggan",
     "customerSatisfactionMessage": "Kami memprioritaskan kepuasan pelanggan dan berusaha memberikan layanan terbaik.",
-    "getInTouch": "Hubungi Kami",
-    "getInTouchMessage": "Hubungi kami hari ini untuk menjadwalkan perbaikan atau mendapatkan penawaran gratis untuk perangkat Anda.",
     "contactUsButton": "Hubungi Kami",
     "testimoni": "Testimoni",
-    "description": "Apa kata orang tentang platform kami !"
+    "description": "Apa kata orang tentang platform kami !",
+    "getstarted": "Mulai sekarang",
+    "getstartedMessage": "Mulailah menggunakan platform perbaikan gadget terbaik hari ini!"
   },
   "Footer": {
     "aboutUs": "Tentang Kami",
@@ -65,10 +65,89 @@
     "followUs": "Ikuti Kami",
     "allRightsReserved": "© 2024 reparin. Hak cipta dilindungi undang-undang."
   },
-
   "ServiceList": {
     "service-list": "Daftar Service",
     "service-list-description": "Semua daftar servis yang ada."
+  },
+  "about": {
+    "aboutUs": {
+      "title": "Tentang Kami",
+      "description": "Kami adalah tim profesional yang berdedikasi untuk memberikan layanan terbaik."
+    },
+    "ourValues": {
+      "title": "Nilai Kami",
+      "description": "Nilai-nilai kami mendorong kami untuk memberikan hasil yang luar biasa bagi klien kami."
+    },
+    "achievements": {
+      "title": "Pencapaian",
+      "description": "Kami bangga dengan pencapaian dan pengakuan kami di industri."
+    }
+  },
+  "founders": {
+    "1": {
+      "name": "Muhammad Hisyam Kamil",
+      "title": "Co-Founder",
+      "description": "yang ngoding",
+      "image": "/founders/hisyam.jpg"
+    },
+    "2": {
+      "name": "Farriel Arianta Akbar Pratama",
+      "title": "Co-Founder",
+      "description": "yang desain logo",
+      "image": "/founders/farriel.jpg"
+    },
+    "3": {
+      "name": "Ahmad Naufal Luthfan Marzuqi",
+      "title": "Co-Founder",
+      "description": "yang desain ui/ux, yang ngasih nama",
+      "image": "/founders/naufal.jpg"
+    },
+    "4": {
+      "name": "Nizam Avif Anhari",
+      "title": "Co-Founder",
+      "description": "yang desain ui/ux",
+      "image": "/founders/nizam.jpg"
+    }
+  },
+  "values": {
+    "innovation": {
+      "title": "Inovasi",
+      "description": "Kami terus mengeksplorasi teknologi dan pendekatan baru untuk memberikan solusi mutakhir."
+    },
+    "collaboration": {
+      "title": "Kolaborasi",
+      "description": "Kami percaya pada kekuatan kerja tim dan mendorong lingkungan kolaboratif untuk mencapai tujuan kami."
+    },
+    "agility": {
+      "title": "Kelincahan",
+      "description": "Kami gesit dan responsif, beradaptasi dengan cepat terhadap kondisi pasar yang berubah dan kebutuhan klien."
+    },
+    "excellence": {
+      "title": "Keunggulan",
+      "description": "Kami berkomitmen untuk memberikan hasil yang luar biasa dan melampaui harapan klien kami."
+    },
+    "creativity": {
+      "title": "Kreativitas",
+      "description": "Kami mendorong budaya kreativitas dan pemikiran di luar kebiasaan untuk mendorong solusi inovatif."
+    },
+    "recognition": {
+      "title": "Pengakuan",
+      "description": "Kami merayakan pencapaian tim kami dan mengakui kontribusi mereka terhadap kesuksesan kami."
+    }
+  },
+  "achievements": {
+    "industryAwards": {
+      "title": "Penghargaan Industri",
+      "description": "Diakui karena solusi inovatif dan layanan luar biasa kami oleh para pemimpin industri."
+    },
+    "satisfiedClients": {
+      "title": "Klien yang Puas",
+      "description": "Dipercaya oleh semakin banyak bisnis di berbagai industri."
+    },
+    "rapidGrowth": {
+      "title": "Pertumbuhan Pesat",
+      "description": "Mengalami pertumbuhan eksponensial, memperluas tim dan jangkauan global kami."
+    }
   },
   "NotFoundPage": {
     "title": "Waduhhhhh . . .",

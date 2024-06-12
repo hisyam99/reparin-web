@@ -16,6 +16,7 @@
   "Header": {
     "nav": {
       "title": "reparin",
+      "about": "About Us",
       "home": "Home",
       "service": "Service",
       "createService": "Create Service",
@@ -42,11 +43,11 @@
     "qualityPartsMessage": "We use only high-quality parts for all our repairs to ensure durability and performance.",
     "customerSatisfactionTitle": "Customer Satisfaction",
     "customerSatisfactionMessage": "We prioritize customer satisfaction and strive to provide the best service possible.",
-    "getInTouch": "Get in Touch",
-    "getInTouchMessage": "Contact us today to schedule a repair or to get a free quote for your device.",
     "contactUsButton": "Contact Us",
     "testimoni": "Testimonies",
-    "description": "Here's what people are saying about our platform"
+    "description": "Here's what people are saying about our platform",
+    "getstarted": "Get Started Now",
+    "getstartedMessage": "Begin using the best repair gadgets platform today!"
   },
   "Footer": {
     "aboutUs": "About Us",
@@ -72,5 +73,85 @@
     "title": "Waduhhhhh . . .",
     "description": "belum digarap :p",
     "backToHome": "Back to home"
+  },
+  "about": {
+    "aboutUs": {
+      "title": "About Us",
+      "description": "We are a team of passionate professionals dedicated to providing top-notch services."
+    },
+    "ourValues": {
+      "title": "Our Values",
+      "description": "Our values drive us to deliver exceptional results for our clients."
+    },
+    "achievements": {
+      "title": "Achievements",
+      "description": "We take pride in our achievements and recognition in the industry."
+    }
+  },
+  "founders": {
+    "1": {
+      "name": "Muhammad Hisyam Kamil",
+      "title": "Co-Founder",
+      "description": "yang ngoding",
+      "image": "/founders/hisyam.jpg"
+    },
+    "2": {
+      "name": "Farriel Arianta Akbar Pratama",
+      "title": "Co-Founder",
+      "description": "yang desain logo",
+      "image": "/founders/farriel.jpg"
+    },
+    "3": {
+      "name": "Ahmad Naufal Luthfan Marzuqi",
+      "title": "Co-Founder",
+      "description": "yang desain ui/ux, yang ngasih nama",
+      "image": "/founders/naufal.jpg"
+    },
+    "4": {
+      "name": "Nizam Avif Anhari",
+      "title": "Co-Founder",
+      "description": "yang desain ui/ux",
+      "image": "/founders/nizam.jpg"
+    }
+  },
+  "values": {
+    "innovation": {
+      "title": "Innovation",
+      "description": "We are constantly exploring new technologies and approaches to deliver cutting-edge solutions."
+    },
+    "collaboration": {
+      "title": "Collaboration",
+      "description": "We believe in the power of teamwork and foster a collaborative environment to achieve our goals."
+    },
+    "agility": {
+      "title": "Agility",
+      "description": "We are nimble and responsive, adapting quickly to changing market conditions and client needs."
+    },
+    "excellence": {
+      "title": "Excellence",
+      "description": "We are committed to delivering exceptional results and exceeding our clients' expectations."
+    },
+    "creativity": {
+      "title": "Creativity",
+      "description": "We foster a culture of creativity and out-of-the-box thinking to drive innovative solutions."
+    },
+    "recognition": {
+      "title": "Recognition",
+      "description": "We celebrate our team's achievements and recognize their contributions to our success."
+    }
+  },
+  "achievements": {
+    "industryAwards": {
+      "title": "Industry Awards",
+      "description": "Recognized for our innovative solutions and outstanding service by industry leaders."
+    },
+    "satisfiedClients": {
+      "title": "Satisfied Clients",
+      "description": "Trusted by a growing number of businesses across various industries."
+    },
+    "rapidGrowth": {
+      "title": "Rapid Growth",
+      "description": "Experienced exponential growth, expanding our team and global reach."
+    }
   }
 }

@@ -91,12 +91,12 @@ export default function Home() {
 
         <section className="container text-center">
           <h2 className="text-3xl font-semibold mt-8 mb-6">
-            {t("getInTouch")}
+            {t("getstarted")}
           </h2>
-          <p className="text-lg mb-6">{t("getInTouchMessage")}</p>
+          <p className="text-lg mb-6">{t("getstartedMessage")}</p>
           <div className="flex  gap-2  justify-center">
-            <Link href="/contact">
-              <Button className="items-center">Contact</Button>
+            <Link href="/dashboard">
+              <Button className="items-center">{t("getstarted")}</Button>
             </Link>
           </div>
         </section>
