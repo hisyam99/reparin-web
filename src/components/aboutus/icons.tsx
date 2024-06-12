@@ -134,7 +134,7 @@ export const MountainIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
   </svg>
 );
 
-export default {
+const icons = {
   AwardIcon,
   BoltIcon,
   BriefcaseIcon,
@@ -143,3 +143,5 @@ export default {
   UsersIcon,
   MountainIcon,
 };
+
+export default icons;
