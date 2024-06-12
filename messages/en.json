@@ -12,7 +12,7 @@
   },
   "Header": {
     "nav": {
-      "title": "FixITnow",
+      "title": "reparin",
       "home": "Home",
       "service": "Service",
       "createService": "Create Service",
@@ -59,7 +59,7 @@
     "privacyPolicy": "Privacy Policy",
     "cookiePolicy": "Cookie Policy",
     "followUs": "Follow Us",
-    "allRightsReserved": "© 2024 FixITnow. All rights reserved."
+    "allRightsReserved": "© 2024 reparin. All rights reserved."
   },
   "ServiceList": {
     "service-list": "Service List",

@@ -12,7 +12,7 @@
   },
   "Header": {
     "nav": {
-      "title": "FixITnow",
+      "title": "reparin",
       "home": "Beranda",
       "service": "Layanan",
       "createService": "Buat Layanan",
@@ -60,7 +60,7 @@
     "privacyPolicy": "Kebijakan Privasi",
     "cookiePolicy": "Kebijakan Cookie",
     "followUs": "Ikuti Kami",
-    "allRightsReserved": "© 2024 FixITnow. Hak cipta dilindungi undang-undang."
+    "allRightsReserved": "© 2024 reparin. Hak cipta dilindungi undang-undang."
   },
 
   "ServiceList": {
