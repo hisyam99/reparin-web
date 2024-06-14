@@ -1,6 +1,6 @@
 {
-    "name": "FixITnow",
-    "short_name": "FixITnow",
+    "name": "Reparin",
+    "short_name": "Reparin",
     "icons": [
       {
         "src": "/icons/android-chrome-192x192.png",
@@ -23,5 +23,5 @@
     "background_color": "#FFFFFF",
     "start_url": "/",
     "display": "standalone",
-    "orientation": "portrait"
+    "orientation": "any"
   }
