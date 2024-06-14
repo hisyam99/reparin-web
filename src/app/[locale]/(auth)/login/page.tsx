@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import LoginForm from "@/components/LoginForm";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import { BackButton } from "@/components/BackButton";
 import { SkeletonDemo } from "@/components/Skeleton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,6 +28,10 @@ export default function Login() {
 
   function handleLoginSuccess() {
     router.refresh();
+  }
+
+  if (status === "loading" || status === "authenticated") {
+    return null;
   }
 
   // if (status === "loading" || status === "authenticated") {
@@ -87,7 +92,11 @@ export default function Login() {
         <div className="flex flex-col h-full">
           <Card className="mx-auto w-full max-w-md">
             <CardHeader>
-              <BackButton />
+              <Link href="/" prefetch={false}>
+                <Button variant="outline" className="w-fit">
+                  Back
+                </Button>
+              </Link>
               <CardTitle className="text-center">Login</CardTitle>
             </CardHeader>
             <CardContent>

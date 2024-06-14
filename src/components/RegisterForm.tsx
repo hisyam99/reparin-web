@@ -123,6 +123,15 @@ const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
               "Submit"
             )}
           </Button>
+          <p className="px-8 text-center text-sm text-muted-foreground">
+            Already have an account?{" "}
+            <Link
+              href="/login"
+              className="underline underline-offset-4 hover:text-primary"
+            >
+              Click here to login.
+            </Link>
+          </p>
 
           <div className="relative flex items-center">
             <div className="flex-grow border-t border-gray-400"></div>

@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import RegisterForm from "@/components/RegisterForm";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import { BackButton } from "@/components/BackButton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useTheme } from "next-themes";
@@ -86,7 +87,11 @@ export default function Register() {
         <div className="flex flex-col h-full">
           <Card className="mx-auto w-full max-w-md">
             <CardHeader>
-              <BackButton />
+              <Link href="/" prefetch={false}>
+                <Button variant="outline" className="w-fit">
+                  Back
+                </Button>
+              </Link>
               <CardTitle className="text-center">Register</CardTitle>
             </CardHeader>
             <CardContent>
