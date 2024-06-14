@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import ClientSessionProvider from "@/components/ClientSessionProvider";
 import NextTopLoader from "nextjs-toploader";
+import GoogleCaptchaWrapper from "@/components/GoogleCaptchaWrapper";
 
 const APP_NAME = "Reparin";
 const APP_DEFAULT_TITLE = "Reparin";
@@ -63,15 +64,17 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <ClientSessionProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <NextTopLoader color="#ccfd86" showSpinner={false} />
-              {children}
-            </ThemeProvider>
+            <GoogleCaptchaWrapper>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                <NextTopLoader color="#ccfd86" showSpinner={false} />
+                {children}
+              </ThemeProvider>
+            </GoogleCaptchaWrapper>
           </ClientSessionProvider>
         </NextIntlClientProvider>
       </body>

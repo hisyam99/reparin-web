@@ -17,9 +17,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Terminal, Loader } from "lucide-react"; // Import the Loader icon
+import { Terminal, Loader } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { PasswordField } from "@/components/PasswordField";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import axios from "axios";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -40,7 +42,8 @@ const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
   const locale = useLocale();
   const t = useTranslations("Login");
   const [error, setError] = useState<string>();
-  const [isLoading, setIsLoading] = useState<boolean>(false); // Add loading state
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -50,8 +53,29 @@ const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
   });
 
   const onSubmit = async (formData: FormSchemaType) => {
-    setIsLoading(true); // Set loading state to true
+    setIsLoading(true);
+    setError(undefined);
+
+    if (!executeRecaptcha) {
+      console.log("Recaptcha not yet available");
+      setError("Recaptcha not available. Please try again later.");
+      setIsLoading(false);
+      return;
+    }
+
     try {
+      const gRecaptchaToken = await executeRecaptcha("loginSubmit");
+
+      const recaptchaResponse = await axios.post("/api/recaptchaSubmit", {
+        gRecaptchaToken,
+      });
+
+      if (!recaptchaResponse.data.success) {
+        setError("Failed to verify recaptcha! You must be a robot!");
+        setIsLoading(false);
+        return;
+      }
+
       const result = await signIn("credentials", {
         username: formData.username,
         password: formData.password,
@@ -66,12 +90,14 @@ const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
     } catch (err) {
       setError((err as Error).message);
     } finally {
-      setIsLoading(false); // Set loading state to false
+      setIsLoading(false);
     }
   };
 
   const handleGoogleSignIn = async () => {
-    setIsLoading(true); // Set loading state to true
+    setIsLoading(true);
+    setError(undefined);
+
     try {
       const result = await signIn("google", { redirect: false });
 
@@ -83,7 +109,7 @@ const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
     } catch (err) {
       setError((err as Error).message);
     } finally {
-      setIsLoading(false); // Set loading state to false
+      setIsLoading(false);
     }
   };
 
