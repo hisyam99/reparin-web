@@ -27,7 +27,7 @@ const ServiceDetail: React.FC = () => {
 
   useEffect(() => {
     if (id) {
-      fetch(`/api/services/${id}`)
+      fetch(`/apis/services/${id}`)
         .then((response) => response.json())
         .then((data) => setService(data))
         .catch((error) =>
@@ -38,7 +38,7 @@ const ServiceDetail: React.FC = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`/api/services/${id}`, {
+      const response = await fetch(`/apis/services/${id}`, {
         method: "DELETE",
       });
 

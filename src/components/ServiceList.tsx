@@ -45,7 +45,7 @@ const ServiceList: React.FC<ServiceListProps> = ({ services }) => {
                 key={service.id}
                 className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
               >
-                <Link href={`/services/ /?id=${service.id}`} passHref>
+                <Link href={`/dashboard/services/ /?id=${service.id}`} passHref>
                   <span className="block cursor-pointer">
                     <span className="font-bold text-base">{service.name}</span>
                     <p className="text-sm ">{service.description}</p>

@@ -20,7 +20,7 @@ const Services: React.FC = () => {
   };
 
   useEffect(() => {
-    fetch("/api/services")
+    fetch("/apis/services")
       .then((response) => response.json())
       .then((data) => setServices(data))
       .catch((error) => console.error("Error fetching services:", error));

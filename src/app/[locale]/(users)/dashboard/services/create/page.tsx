@@ -16,7 +16,7 @@ const CreateService: React.FC = () => {
     rating: string;
   }) => {
     try {
-      const response = await fetch("/api/services", {
+      const response = await fetch("/apis/services", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
