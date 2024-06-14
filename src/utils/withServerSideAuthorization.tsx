@@ -1,5 +1,3 @@
-// /utils/withServerSideAuthorization.tsx
-
 import { getServerSession } from "next-auth";
 import { GetServerSidePropsContext } from "next";
 import authOptions from "@/auth";

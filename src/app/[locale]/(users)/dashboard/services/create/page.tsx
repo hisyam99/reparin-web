@@ -1,5 +1,3 @@
-// /pages/create-service.tsx
-
 "use client";
 
 import ServiceForm from "@/components/ServiceForm";

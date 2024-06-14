@@ -1,4 +1,3 @@
-// app/LocaleLayout.tsx
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import type { Metadata, Viewport } from "next";
