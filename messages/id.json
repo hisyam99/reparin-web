@@ -153,5 +153,10 @@
     "title": "Waduhhhhh . . .",
     "description": "belum digarap :p",
     "backToHome": "Kembali"
+  },
+  "UnauthorizedPage": {
+    "title": "Tidak Diizinkan",
+    "description": "Anda tidak memiliki akses ke halaman ini.",
+    "backToHome": "Kembali ke Beranda"
   }
 }

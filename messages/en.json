@@ -153,5 +153,10 @@
       "title": "Rapid Growth",
       "description": "Experienced exponential growth, expanding our team and global reach."
     }
+  },
+  "UnauthorizedPage": {
+    "title": "Unauthorized",
+    "description": "You do not have access to this page.",
+    "backToHome": "Back to Home"
   }
 }

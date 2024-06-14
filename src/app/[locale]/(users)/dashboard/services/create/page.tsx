@@ -1,10 +1,12 @@
-"use client"; // Add this line to mark the component as client-side
+// /pages/create-service.tsx
 
-import React from "react";
+"use client";
+
 import ServiceForm from "@/components/ServiceForm";
+import withAuthorization from "@/utils/withClientSideAuthorization";
 
-const CreateService: React.FC = () => {
-  const backgroundStyle: React.CSSProperties = {
+function CreateService() {
+  const backgroundStyle = {
     minHeight: "100vh",
     padding: "20px",
   };
@@ -34,7 +36,7 @@ const CreateService: React.FC = () => {
       const data = await response.json();
       console.log(data);
     } catch (error) {
-      throw new Error((error as Error).message);
+      console.error("Error creating service:", (error as Error).message);
     }
   };
 
@@ -46,6 +48,6 @@ const CreateService: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
-export default CreateService;
+export default withAuthorization(CreateService, ["admin", "repairman"]);

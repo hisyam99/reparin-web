@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useSession, signIn } from "next-auth/react";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ const SignInButton: React.FC = () => {
   return (
     <>
       {session ? (
-        <UserNav/>
+        <UserNav />
       ) : (
         <Button variant="default" onClick={() => signIn()}>
           {t("nav.login")}
