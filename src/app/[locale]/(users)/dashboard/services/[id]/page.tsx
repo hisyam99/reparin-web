@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import ServiceItem from "@/components/ServiceItem";
 import DeleteConfirmation from "@/components/DeleteConfirmation";
@@ -17,6 +18,7 @@ interface Service {
 const ServiceDetail: React.FC = () => {
   const [service, setService] = useState<Service | null>(null);
   const [openDeleteDialog, setOpenDeleteDialog] = useState<boolean>(false);
+  const { data: session, status } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
@@ -53,18 +55,24 @@ const ServiceDetail: React.FC = () => {
   };
 
   if (!service) {
-    return <p>Loading...</p>;
+    return null;
   }
 
   return (
     <div className="container mx-auto p-4" style={backgroundStyle}>
       <ServiceItem service={service} />
-      <Button onClick={() => setOpenDeleteDialog(true)}>Delete Service</Button>
-      <DeleteConfirmation
-        open={openDeleteDialog}
-        onClose={() => setOpenDeleteDialog(false)}
-        onConfirm={handleDelete}
-      />
+      {session && session.user.role === "admin" && (
+        <>
+          <Button onClick={() => setOpenDeleteDialog(true)}>
+            Delete Service
+          </Button>
+          <DeleteConfirmation
+            open={openDeleteDialog}
+            onClose={() => setOpenDeleteDialog(false)}
+            onConfirm={handleDelete}
+          />
+        </>
+      )}
     </div>
   );
 };
