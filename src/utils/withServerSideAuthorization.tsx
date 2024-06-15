@@ -1,31 +1,21 @@
-import { getServerSession } from "next-auth";
+import { getSession } from "next-auth/react";
 import { GetServerSidePropsContext } from "next";
-import authOptions from "@/auth";
 
-export default function withServerSideAuthorization(
-  allowedRoles: string[],
-  Component: React.ComponentType
-) {
-  return async (context: GetServerSidePropsContext) => {
-    const session = await getServerSession(
-      context.req,
-      context.res,
-      authOptions
-    );
+export const withServerSideAuthorization = async (context: GetServerSidePropsContext, allowedRoles: string[]) => {
+  const session = await getSession(context);
 
-    if (!session || !allowedRoles.includes(session.user.role)) {
-      return {
-        redirect: {
-          destination: "/unauthorized",
-          permanent: false,
-        },
-      };
-    }
-
+  if (!session || !allowedRoles.includes(session.user.role)) {
     return {
-      props: {
-        session,
+      redirect: {
+        destination: "/unauthorized",
+        permanent: false,
       },
     };
+  }
+
+  return {
+    props: {
+      session,
+    },
   };
-}
+};

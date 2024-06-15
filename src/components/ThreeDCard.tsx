@@ -22,6 +22,7 @@ interface ThreeDCardProps {
       imageAlt: string;
       linkHref: string;
       linkText: string;
+      buttonHref: string; // Add this new field
       buttonText: string;
     };
   }>;
@@ -69,8 +70,8 @@ export const ThreeDCard: React.FC<ThreeDCardProps> = ({
                     alt={testimonial.cardProps.imageAlt}
                   />
                 </CardItem>
-                <div className="flex justify-between items-center mt-10 sm:mt-20">
-                  <CardItem
+                <div className="flex justify-end items-center mt-10 sm:mt-20">
+                  {/* <CardItem
                     translateZ={20}
                     as={Link}
                     href={testimonial.cardProps.linkHref}
@@ -78,10 +79,11 @@ export const ThreeDCard: React.FC<ThreeDCardProps> = ({
                     className="px-3 py-1 sm:px-4 sm:py-2 rounded-xl text-xs font-normal dark:text-white"
                   >
                     {testimonial.cardProps.linkText} →
-                  </CardItem>
+                  </CardItem> */}
                   <CardItem
                     translateZ={20}
-                    as="button"
+                    as={Link}
+                    href={testimonial.cardProps.buttonHref} // Use buttonHref here
                     className="px-3 py-1 sm:px-4 sm:py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
                   >
                     {testimonial.cardProps.buttonText}

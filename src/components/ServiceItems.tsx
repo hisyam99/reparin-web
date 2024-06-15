@@ -12,44 +12,42 @@ export function ServiceItems() {
       id: 1,
       cardProps: {
         title: "Smartphones",
-        description:
-          "Perbaikan Smartphone yang handal",
+        description: "Perbaikan Smartphone yang handal",
         imageSrc: "/hp.png",
         imageAlt: "thumbnail",
         linkHref: "/login",
         linkText: "Try now",
-        buttonText: "Sign up",
+        buttonHref: "/dashboard/services",
+        buttonText: "Try now",
       },
     },
     {
       id: 2,
       cardProps: {
         title: "Laptop",
-        description:
-          "Perbaikan Laptop terbaik yang pernah ada",
+        description: "Perbaikan Laptop terbaik yang pernah ada",
         imageSrc: "/laptop.png",
         imageAlt: "thumbnail",
         linkHref: "/login",
         linkText: "Try now",
-        buttonText: "Sign up",
+        buttonHref: "/dashboard/services",
+        buttonText: "Try now",
       },
     },
     {
       id: 3,
       cardProps: {
         title: "Tablet",
-        description:
-          "Buat tabletmu seperti baru !",
+        description: "Buat tabletmu seperti baru !",
         imageSrc: "/tablet.png",
         imageAlt: "thumbnail",
         linkHref: "/login",
         linkText: "Try now",
-        buttonText: "Sign up",
+        buttonHref: "/dashboard/services",
+        buttonText: "Try now",
       },
     },
   ];
 
-  return (
-    <ThreeDCard testimonials={testimonials} plugin={plugin} />
-  );
+  return <ThreeDCard testimonials={testimonials} plugin={plugin} />;
 }
