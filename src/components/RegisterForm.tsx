@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
@@ -24,30 +25,28 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
 
 const FormSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-  password: z.string().min(6, {
-    message: "Password must be at least 6 characters.",
-  }),
+  email: z.string().email({ message: "Invalid email address" }),
+  name: z.string().min(2, { message: "Username must be at least 2 characters" }),
+  password: z
+    .string()
+    .min(6, { message: "Password must be at least 6 characters" }),
+  otp: z.string().length(6, { message: "OTP must be 6 digits" }).optional(),
 });
 
 type FormSchemaType = z.infer<typeof FormSchema>;
 
-interface LoginFormProps {
-  onSubmitSuccess: () => void;
-}
-
-const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
-  const locale = useLocale();
-  const t = useTranslations("Login");
+const RegisterForm: React.FC = () => {
+  const router = useRouter();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [error, setError] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [otpSent, setOtpSent] = useState<boolean>(false);
+
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      username: "",
+      email: "",
+      name: "",
       password: "",
     },
   });
@@ -57,15 +56,13 @@ const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
     setError(undefined);
 
     if (!executeRecaptcha) {
-      console.log("Recaptcha not yet available");
       setError("Recaptcha not available. Please try again later.");
       setIsLoading(false);
       return;
     }
 
     try {
-      const gRecaptchaToken = await executeRecaptcha("loginSubmit");
-
+      const gRecaptchaToken = await executeRecaptcha("registerSubmit");
       const recaptchaResponse = await axios.post("/api/recaptchaSubmit", {
         gRecaptchaToken,
       });
@@ -76,16 +73,27 @@ const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
         return;
       }
 
-      const result = await signIn("credentials", {
-        username: formData.username,
-        password: formData.password,
-        redirect: false,
-      });
+      if (!otpSent) {
+        // Register user and send OTP
+        const response = await axios.post("/api/auth/register", {
+          email: formData.email,
+          name: formData.name,
+          password: formData.password,
+        });
 
-      if (result?.error) {
-        setError(result.error);
+        if (response.status === 200) {
+          setOtpSent(true);
+        }
       } else {
-        onSubmitSuccess();
+        // Verify OTP
+        const response = await axios.post("/api/auth/verify-otp", {
+          email: formData.email,
+          otp: formData.otp,
+        });
+
+        if (response.status === 200) {
+          router.push("/login");
+        }
       }
     } catch (err) {
       setError((err as Error).message);
@@ -104,7 +112,7 @@ const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
       if (result?.error) {
         setError(result.error);
       } else {
-        onSubmitSuccess();
+        router.push("/"); // Redirect to the home page or dashboard after successful login
       }
     } catch (err) {
       setError((err as Error).message);
@@ -117,37 +125,56 @@ const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
     <div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <FormField
+        <FormField
             control={form.control}
-            name="username"
+            name="name"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input placeholder="Username" {...field} />
+                  <Input placeholder="Username" {...field} disabled={otpSent} />
                 </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <FormItem>
-            <FormLabel>Password</FormLabel>
-            <PasswordField
-              name="password"
-              placeholder="Password"
-              description="Enter your password here."
-            />
-          </FormItem>
-
-          <Button type="submit" className="w-full" disabled={isLoading}>
-            {isLoading ? (
-              <Loader className="mr-2 h-4 w-4 animate-spin" />
-            ) : (
-              "Submit"
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="Email" {...field} disabled={otpSent} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
             )}
+          />
+          
+          {!otpSent && (
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+              <PasswordField name="password" placeholder="Password" />
+            </FormItem>
+          )}
+          {otpSent && (
+            <FormField
+              control={form.control}
+              name="otp"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>OTP</FormLabel>
+                  <FormControl>
+                    <Input placeholder="OTP" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
+          <Button type="submit" className="w-full" disabled={isLoading}>
+            {isLoading ? "Loading..." : otpSent ? "Verify OTP" : "Register"}
           </Button>
           <p className="px-8 text-center text-sm text-muted-foreground">
             Already have an account?{" "}
@@ -158,13 +185,11 @@ const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
               Click here to login.
             </Link>
           </p>
-
           <div className="relative flex items-center">
             <div className="flex-grow border-t border-gray-400"></div>
             <span className="flex-shrink mx-4 text-gray-400">or</span>
             <div className="flex-grow border-t border-gray-400"></div>
           </div>
-
           <Button
             type="button"
             variant="outline"
@@ -187,12 +212,10 @@ const RegisterForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
               </div>
             )}
           </Button>
-
           {error && (
             <Alert>
-              <Terminal className="h-4 w-4" />
               <AlertTitle>Error!</AlertTitle>
-              <AlertDescription>{t("error", { error })}</AlertDescription>
+              <AlertDescription>{error}</AlertDescription>
             </Alert>
           )}
         </form>

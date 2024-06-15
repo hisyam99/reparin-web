@@ -24,8 +24,8 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
 
 const FormSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  email: z.string().email({
+    message: "Invalid email address.",
   }),
   password: z.string().min(6, {
     message: "Password must be at least 6 characters.",
@@ -47,7 +47,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      username: "",
+      email: "",
       password: "",
     },
   });
@@ -77,7 +77,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
       }
 
       const result = await signIn("credentials", {
-        username: formData.username,
+        email: formData.email,
         password: formData.password,
         redirect: false,
       });
@@ -119,15 +119,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmitSuccess }) => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
-            name="username"
+            name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="Username" {...field} />
+                  <Input type="email" placeholder="Email" {...field} />
                 </FormControl>
                 <FormDescription>
-                  This is your public display name.
+                  This is your public display email.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
