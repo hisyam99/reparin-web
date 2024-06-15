@@ -99,7 +99,7 @@ export default function Register() {
                 <p className="text-sm text-muted-foreground text-center">
                   Enter your email and password to register
                 </p>
-                <RegisterForm onSubmitSuccess={handleRegisterSuccess} />
+                <RegisterForm />
               </div>
             </CardContent>
           </Card>
