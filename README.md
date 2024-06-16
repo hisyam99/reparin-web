@@ -1,4 +1,6 @@
-## ~~SiPinter Service~~ kini jadi FixITNow: Cepat, Dekat, Terpercaya.
+## ~~SiPinter Service kini jadi FixITNow: Cepat, Dekat, Terpercaya.~~
+## Reparin
+### #MauService? Reparin aja !
 
 Aplikasi yang menawarkan solusi perbaikan tepat dan terpercaya.
 
