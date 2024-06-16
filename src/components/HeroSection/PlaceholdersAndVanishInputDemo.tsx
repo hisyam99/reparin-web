@@ -15,12 +15,22 @@ export function PlaceholdersAndVanishInputDemo() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
   };
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submitted");
+    const form = e.target as HTMLFormElement;
+    const input = form.querySelector("input");
+    if (input) {
+      const searchTerm = input.value;
+      console.log("submitted");
+      window.location.href = `/dashboard/services?query=${encodeURIComponent(
+        searchTerm
+      )}`;
+    }
   };
+
   return (
-    <div className=" justify-center items-center px-4">
+    <div className="justify-center items-center px-4">
       <motion.div
         initial={{
           opacity: 0,
