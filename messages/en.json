@@ -69,11 +69,6 @@
     "service-list": "Service List",
     "service-list-description": "All Service List"
   },
-  "NotFoundPage": {
-    "title": "Waduhhhhh . . .",
-    "description": "belum digarap :p",
-    "backToHome": "Back to home"
-  },
   "about": {
     "aboutUs": {
       "title": "About Us",
@@ -153,6 +148,11 @@
       "title": "Rapid Growth",
       "description": "Experienced exponential growth, expanding our team and global reach."
     }
+  },
+  "NotFoundPage": {
+    "title": "Waduhhhhh . . .",
+    "description": "belum digarap :p",
+    "backToHome": "Back to home"
   },
   "UnauthorizedPage": {
     "title": "Unauthorized",

@@ -47,11 +47,7 @@ export default function Register() {
         <div className="relative flex items-center text-lg font-medium">
           <Link href="/" passHref>
             <Image
-              src={
-                currentTheme === "dark"
-                  ? "/icon/fixitnow-icon-dark.png"
-                  : "/icon/fixitnow-icon.png"
-              }
+              src="/icon/fixitnow-icon-dark.png"
               alt={t("nav.title")}
               width={125}
               height={125}
@@ -64,7 +60,7 @@ export default function Register() {
             <p className="text-lg">
               &ldquo;Tempat servis terbaik yang pernah ada !&rdquo;
             </p>
-            <footer className="text-sm">FixITnow</footer>
+            <footer className="text-sm">Reparin</footer>
           </blockquote>
         </div>
       </div>
