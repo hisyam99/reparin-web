@@ -1,5 +1,5 @@
 import BreadCrumb from '@/components/layout/breadcrumb';
-import { ProductForm } from '@/components/forms/product-form';
+import { ProductForm } from '@/components/layout/forms/product-form';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import React from 'react';
 

@@ -25,7 +25,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 // import FileUpload from '../file-upload';
-import { useToast } from '../ui/use-toast';
+import { useToast } from '../../ui/use-toast';
 const ImgSchema = z.object({
   fileName: z.string(),
   name: z.string(),

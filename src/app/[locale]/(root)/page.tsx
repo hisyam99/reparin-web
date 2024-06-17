@@ -6,9 +6,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import { ServiceItems } from "@/components/layout/ServiceItems";
-import { HeroSectionFlipWord } from "@/components/HeroSection/HeroSectionFlipWords";
-import { PlaceholdersAndVanishInputDemo } from "@/components/HeroSection/PlaceholdersAndVanishInputDemo";
-import { GlobeDemo } from "@/components/HeroSection/GlobeDemo";
+import { HeroSectionFlipWord } from "@/components/layout/HeroSection/HeroSectionFlipWords";
+import { PlaceholdersAndVanishInputDemo } from "@/components/layout/HeroSection/PlaceholdersAndVanishInputDemo";
+import { GlobeDemo } from "@/components/layout/HeroSection/GlobeDemo";
 import { useRef } from "react";
 
 export default function Home() {

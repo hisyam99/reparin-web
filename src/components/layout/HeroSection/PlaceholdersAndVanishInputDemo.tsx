@@ -1,6 +1,6 @@
 "use client";
 
-import { PlaceholdersAndVanishInput } from "../ui/placeholders-and-vanish-input";
+import { PlaceholdersAndVanishInput } from "../../ui/placeholders-and-vanish-input";
 import { motion } from "framer-motion";
 
 export function PlaceholdersAndVanishInputDemo() {
