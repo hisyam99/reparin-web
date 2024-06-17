@@ -1,46 +1,42 @@
 "use client";
 
-import React, { useCallback } from "react";
 import ServiceForm from "@/components/layout/ServiceForm";
 import withAuthorization from "@/utils/withClientSideAuthorization";
 
-export function CreateService() {
+function CreateService() {
   const backgroundStyle = {
     minHeight: "100vh",
     padding: "20px",
   };
 
-  const handleSubmit = useCallback(
-    async (serviceData: {
-      name: string;
-      description: string;
-      location: string;
-      rating: string;
-    }) => {
-      try {
-        const response = await fetch("/apis/services", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ...serviceData,
-            rating: parseFloat(serviceData.rating),
-          }),
-        });
+  const handleSubmit = async (serviceData: {
+    name: string;
+    description: string;
+    location: string;
+    rating: string;
+  }) => {
+    try {
+      const response = await fetch("/apis/services", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...serviceData,
+          rating: parseFloat(serviceData.rating),
+        }),
+      });
 
-        if (!response.ok) {
-          throw new Error("Failed to create service. Please try again.");
-        }
-
-        const data = await response.json();
-        console.log(data);
-      } catch (error) {
-        console.error("Error creating service:", (error as Error).message);
+      if (!response.ok) {
+        throw new Error("Failed to create service. Please try again.");
       }
-    },
-    []
-  );
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error creating service:", (error as Error).message);
+    }
+  };
 
   return (
     <div style={backgroundStyle}>
