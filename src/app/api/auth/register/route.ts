@@ -3,23 +3,11 @@ import bcrypt from "bcryptjs";
 import nodemailer from "nodemailer";
 import clientPromise from "@/lib/mongo/client";
 import { otpEmail } from "@/emails/otpEmail";
-import cookie from "cookie";
 
 type RequestBody = {
   email: string;
   name: string;
   password: string;
-  theme?: "light" | "dark" | "system";
-};
-
-const detectSystemTheme = (req: NextRequest): "light" | "dark" => {
-  const cookies = cookie.parse(req.headers.get("cookie") || "");
-  const theme = cookies.theme || "system";
-  const systemTheme = cookies.systemTheme || "light"; // default to light if not set
-
-  return theme === "system"
-    ? (systemTheme as "light" | "dark")
-    : (theme as "light" | "dark");
 };
 
 export async function POST(req: NextRequest) {
@@ -63,9 +51,6 @@ export async function POST(req: NextRequest) {
       createdAt: new Date(),
     });
 
-    // Determine actual theme
-    const actualTheme = detectSystemTheme(req);
-
     // Send OTP via email
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -82,7 +67,7 @@ export async function POST(req: NextRequest) {
       from: process.env.GMAIL_USER,
       to: email,
       subject: "Your OTP Code",
-      html: otpEmail(otp, actualTheme, logoUrl, websiteUrl),
+      html: otpEmail(otp, logoUrl, websiteUrl),
     };
 
     await transporter.sendMail(mailOptions);
