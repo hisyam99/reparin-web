@@ -1,7 +1,7 @@
 "use client";
 
 import ServiceForm from "@/components/layout/ServiceForm";
-import withAuthorization from "@/utils/withClientSideAuthorization";
+import withAuthorization from "@/components/layout/Dashboard/withClientSideAuthorization";
 
 function CreateService() {
   const backgroundStyle = {

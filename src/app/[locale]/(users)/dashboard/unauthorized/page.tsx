@@ -12,7 +12,7 @@ export default function UnauthorizedPage() {
         {t("description")}
       </p>
       <Button variant="destructive" asChild>
-        <Link href="/">{t("backToHome")}</Link>
+        <Link href="/dashboard">{t("backToHome")}</Link>
       </Button>
     </section>
   );
