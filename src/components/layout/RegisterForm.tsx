@@ -42,6 +42,7 @@ const RegisterForm: React.FC = () => {
   const [error, setError] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [otpSent, setOtpSent] = useState<boolean>(false);
+  const [showOtpAlert, setShowOtpAlert] = useState<boolean>(false); // State untuk menampilkan alert OTP
 
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
@@ -84,6 +85,7 @@ const RegisterForm: React.FC = () => {
 
         if (response.status === 200) {
           setOtpSent(true);
+          setShowOtpAlert(true); // Tampilkan alert untuk memeriksa email
         } else {
           setError(response.data.message);
         }
@@ -180,6 +182,14 @@ const RegisterForm: React.FC = () => {
                 </FormItem>
               )}
             />
+          )}
+          {showOtpAlert && (
+            <Alert>
+              <AlertTitle>Success!</AlertTitle>
+              <AlertDescription>
+                Please check your email for the OTP code.
+              </AlertDescription>
+            </Alert>
           )}
           <Button type="submit" className="w-full" disabled={isLoading}>
             {isLoading ? "Loading..." : otpSent ? "Verify OTP" : "Register"}
