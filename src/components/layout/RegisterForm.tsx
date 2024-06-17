@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { signIn } from "next-auth/react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import {
   Form,
   FormControl,
@@ -14,19 +14,20 @@ import {
   FormLabel,
   FormItem,
   FormMessage,
-  FormDescription,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Terminal, Loader } from "lucide-react";
+import { Loader } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { PasswordField } from "@/components/PasswordField";
+import { PasswordField } from "@/components/layout/PasswordField";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
 
 const FormSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
-  name: z.string().min(2, { message: "Username must be at least 2 characters" }),
+  name: z
+    .string()
+    .min(2, { message: "Username must be at least 2 characters" }),
   password: z
     .string()
     .min(6, { message: "Password must be at least 6 characters" }),
@@ -83,6 +84,8 @@ const RegisterForm: React.FC = () => {
 
         if (response.status === 200) {
           setOtpSent(true);
+        } else {
+          setError(response.data.message);
         }
       } else {
         // Verify OTP
@@ -93,10 +96,16 @@ const RegisterForm: React.FC = () => {
 
         if (response.status === 200) {
           router.push("/login");
+        } else {
+          setError(response.data.message);
         }
       }
     } catch (err) {
-      setError((err as Error).message);
+      if (axios.isAxiosError(err) && err.response) {
+        setError(err.response.data.message);
+      } else {
+        setError((err as Error).message);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -125,7 +134,7 @@ const RegisterForm: React.FC = () => {
     <div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <FormField
+          <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
@@ -151,7 +160,6 @@ const RegisterForm: React.FC = () => {
               </FormItem>
             )}
           />
-          
           {!otpSent && (
             <FormItem>
               <FormLabel>Password</FormLabel>

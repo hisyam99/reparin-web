@@ -1,4 +1,4 @@
-import BreadCrumb from '@/components/breadcrumb';
+import BreadCrumb from '@/components/layout/breadcrumb';
 import { columns } from '@/components/tables/employee-tables/columns';
 import { EmployeeTable } from '@/components/tables/employee-tables/employee-table';
 import { buttonVariants } from '@/components/ui/button';

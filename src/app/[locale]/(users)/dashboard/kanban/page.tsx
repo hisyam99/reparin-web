@@ -1,4 +1,4 @@
-import BreadCrumb from '@/components/breadcrumb';
+import BreadCrumb from '@/components/layout/breadcrumb';
 import { KanbanBoard } from '@/components/kanban/kanban-board';
 import NewTaskDialog from '@/components/kanban/new-task-dialog';
 import { Heading } from '@/components/ui/heading';

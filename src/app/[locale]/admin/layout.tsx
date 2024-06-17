@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import authOption from "@/auth";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import { redirect } from "next/navigation";
 
 export default async function Admin({

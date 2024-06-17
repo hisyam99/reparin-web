@@ -5,10 +5,9 @@ import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import Link from "next/link";
-import RegisterForm from "@/components/RegisterForm";
+import RegisterForm from "@/components/layout/RegisterForm";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { BackButton } from "@/components/BackButton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useTheme } from "next-themes";
 
@@ -25,17 +24,9 @@ export default function Register() {
     }
   }, [status, router]);
 
-  function handleRegisterSuccess() {
-    router.refresh();
+  if (status === "loading" || status === "authenticated") {
+    return null;
   }
-
-  // if (status === "loading" || status === "authenticated") {
-  //   return (
-  //     <div className="relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-  //       <SkeletonDemo />
-  //     </div>
-  //   );
-  // }
 
   return (
     <div className="relative h-screen flex-col items-center justify-center lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
@@ -58,9 +49,9 @@ export default function Register() {
         <div className="relative mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
-              &ldquo;Tempat servis terbaik yang pernah ada !&rdquo;
+              &ldquo;{t("quote.bestServiceEver")}&rdquo;
             </p>
-            <footer className="text-sm">Reparin</footer>
+            <footer className="text-sm">{t("quote.author")}</footer>
           </blockquote>
         </div>
       </div>
@@ -85,15 +76,17 @@ export default function Register() {
             <CardHeader>
               <Link href="/" prefetch={false}>
                 <Button variant="outline" className="w-fit">
-                  Back
+                  {t("back")}
                 </Button>
               </Link>
-              <CardTitle className="text-center">Register</CardTitle>
+              <CardTitle className="text-center">
+                {t("registerTitle")}
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex flex-col space-y-4">
                 <p className="text-sm text-muted-foreground text-center">
-                  Enter your email and password to register
+                  {t("registerPrompt")}
                 </p>
                 <RegisterForm />
               </div>

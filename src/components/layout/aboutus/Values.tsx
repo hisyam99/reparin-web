@@ -7,7 +7,7 @@ import {
   BriefcaseIcon,
   LightbulbIcon,
   AwardIcon,
-} from "@/components/aboutus/icons";
+} from "@/components/layout/aboutus/icons";
 
 const Values: React.FC = () => {
   const t = useTranslations("values");

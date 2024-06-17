@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { navItems } from "@/constants/data";
-import { DashboardNav } from "@/components/dashboard-nav";
+import { DashboardNav } from "@/components/layout/dashboard-nav";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { useTheme } from "next-themes";
 

@@ -3,7 +3,7 @@
 import { useSession, signIn } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
-import { UserNav } from "./layout/user-nav";
+import { UserNav } from "./Dashboard/user-nav";
 
 const SignInButton: React.FC = () => {
   const { data: session } = useSession();

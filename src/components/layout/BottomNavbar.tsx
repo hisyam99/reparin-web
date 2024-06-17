@@ -6,7 +6,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SVGProps } from "react";
-import { UserNav } from "./layout/user-nav";
+import { UserNav } from "./Dashboard/user-nav";
 
 export default function BottomNavbar() {
   return (

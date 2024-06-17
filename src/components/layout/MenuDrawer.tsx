@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import LocaleSwitcher from "./LocaleSwitcher";
-import ThemeToggle from "@/components/layout/ThemeToggle/theme-toggle";
+import ThemeToggle from "@/components/layout/Dashboard/ThemeToggle/theme-toggle";
 import { useTheme } from "next-themes";
 // import { useSession } from "next-auth/react";
 

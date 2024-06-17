@@ -1,6 +1,6 @@
-import Header from "@/components/layout/header";
-import Sidebar from "@/components/layout/sidebar";
-import BottomNavbar from "@/components/BottomNavbar";
+import Header from "@/components/layout/Dashboard/header";
+import Sidebar from "@/components/layout/Dashboard/sidebar";
+import BottomNavbar from "@/components/layout/BottomNavbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

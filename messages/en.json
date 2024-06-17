@@ -11,7 +11,14 @@
     "username": "Username",
     "password": "Password",
     "submit": "Login",
-    "error": "{error, select, CredentialsSignin {Invalid username or password} other {Unknown error}}"
+    "error": "{error, select, CredentialsSignin {Invalid username or password} other {Unknown error}}",
+    "back": "Back",
+    "quote": {
+      "bestServiceEver": "Tempat servis terbaik yang pernah ada !",
+      "author": "Reparin"
+    },
+    "registerTitle": "Register Account",
+    "registerPrompt": "Enter your email and password to register"
   },
   "Header": {
     "nav": {
@@ -47,7 +54,11 @@
     "testimoni": "Testimonies",
     "description": "Here's what people are saying about our platform",
     "getstarted": "Get Started Now",
-    "getstartedMessage": "Begin using the best repair gadgets platform today!"
+    "getstartedMessage": "Begin using the best repair gadgets platform today!",
+    "viewMore": "View More . . .",
+    "testimonials": "Testimonials",
+    "getStarted": "Get Started",
+    "getStartedMessage": "Begin using the best repair gadgets platform today!"
   },
   "Footer": {
     "aboutUs": "About Us",

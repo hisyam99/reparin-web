@@ -1,7 +1,7 @@
 import React from "react";
 import Founders from "./Founders";
 import Values from "./Values";
-import Achievements from "@/components/aboutus/Achievements";
+import Achievements from "@/components/layout/aboutus/Achievements";
 
 interface SectionProps {
   className?: string;

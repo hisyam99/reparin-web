@@ -1,4 +1,4 @@
-import BreadCrumb from '@/components/breadcrumb';
+import BreadCrumb from '@/components/layout/breadcrumb';
 import { ProductForm } from '@/components/forms/product-form';
 import React from 'react';
 

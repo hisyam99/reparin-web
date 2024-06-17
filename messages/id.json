@@ -11,7 +11,14 @@
     "username": "Username",
     "password": "Password",
     "submit": "Login",
-    "error": "{error, select, CredentialsSignin {Invalid username or password} other {Unknown error}}"
+    "error": "{error, select, CredentialsSignin {Invalid username or password} other {Unknown error}}",
+    "back": "Kembali",
+    "quote": {
+      "bestServiceEver": "Tempat servis terbaik yang pernah ada !",
+      "author": "Reparin"
+    },
+    "registerTitle": "Registrasi Akun",
+    "registerPrompt": "Masukkan email dan password anda untuk registrasi"
   },
   "Header": {
     "nav": {
@@ -47,7 +54,11 @@
     "testimoni": "Testimoni",
     "description": "Apa kata orang tentang platform kami !",
     "getstarted": "Mulai sekarang",
-    "getstartedMessage": "Mulailah menggunakan platform perbaikan gadget terbaik hari ini!"
+    "getstartedMessage": "Mulailah menggunakan platform perbaikan gadget terbaik hari ini!",
+    "viewMore": "Lihat Selengkapnya . . .",
+    "testimonials": "Testimoni",
+    "getStarted": "Mulai Sekarang",
+    "getStartedMessage": "Mulailah menggunakan platform perbaikan gadget terbaik hari ini!"
   },
   "Footer": {
     "aboutUs": "Tentang Kami",

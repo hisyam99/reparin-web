@@ -19,7 +19,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Terminal, Loader } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { PasswordField } from "@/components/PasswordField";
+import { PasswordField } from "@/components/layout/PasswordField";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
 

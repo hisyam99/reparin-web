@@ -1,8 +1,8 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import type { Metadata, Viewport } from "next";
-import { ThemeProvider } from "@/components/theme-provider";
-import ClientSessionProvider from "@/components/ClientSessionProvider";
+import { ThemeProvider } from "@/components/layout/theme-provider";
+import ClientSessionProvider from "@/components/layout/ClientSessionProvider";
 import NextTopLoader from "nextjs-toploader";
 
 const APP_NAME = "Reparin";

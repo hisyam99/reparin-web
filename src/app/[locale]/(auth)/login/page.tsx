@@ -5,11 +5,9 @@ import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import Link from "next/link";
-import LoginForm from "@/components/LoginForm";
+import LoginForm from "@/components/layout/LoginForm";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { BackButton } from "@/components/BackButton";
-import { SkeletonDemo } from "@/components/Skeleton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useTheme } from "next-themes";
 
@@ -33,14 +31,6 @@ export default function Login() {
   if (status === "loading" || status === "authenticated") {
     return null;
   }
-
-  // if (status === "loading" || status === "authenticated") {
-  //   return (
-  //     <div className="relative h-screen flex-col items-center justify-center lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-  //       <SkeletonDemo />
-  //     </div>
-  //   );
-  // }
 
   return (
     <div className="relative h-screen flex-col items-center justify-center lg:grid lg:max-w-none lg:grid-cols-2 lg:px-0">

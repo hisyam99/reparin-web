@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslations } from "next-intl";
-import { AwardIcon, UsersIcon, RocketIcon } from "@/components/aboutus/icons";
+import { AwardIcon, UsersIcon, RocketIcon } from "@/components/layout/aboutus/icons";
 
 const Achievements: React.FC = () => {
   const t = useTranslations("achievements");

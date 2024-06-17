@@ -1,9 +1,9 @@
-import Section from "@/components/aboutus/Section";
+import Section from "@/components/layout/aboutus/Section";
 import {
   LightbulbIcon,
   UsersIcon,
   MountainIcon,
-} from "@/components/aboutus/icons";
+} from "@/components/layout/aboutus/icons";
 import { useTranslations } from "next-intl";
 
 export default function AboutPage() {

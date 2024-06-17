@@ -15,29 +15,37 @@ export async function POST(req: NextRequest) {
   const client: MongoClient = await clientPromise;
   const db = client.db();
 
-  const user = await db.collection("users").findOne({ email });
+  const otpRequest = await db.collection("otpRequests").findOne({ email });
 
-  if (!user) {
-    return NextResponse.json({ message: "User not found" }, { status: 400 });
+  if (!otpRequest) {
+    return NextResponse.json(
+      { message: "OTP request not found" },
+      { status: 400 }
+    );
   }
 
-  if (user.otp !== otp || new Date() > user.otpExpiration) {
+  if (otpRequest.otp !== otp || new Date() > otpRequest.otpExpiration) {
     return NextResponse.json(
       { message: "Invalid or expired OTP" },
       { status: 400 }
     );
   }
 
-  await db.collection("users").updateOne(
-    { email },
-    {
-      $set: { isVerified: true },
-      $unset: { otp: "", otpExpiration: "" },
-    }
-  );
+  // Move user data from otpRequests to users
+  await db.collection("users").insertOne({
+    role: "user",
+    email: otpRequest.email,
+    name: otpRequest.name,
+    password: otpRequest.password,
+    isVerified: true,
+    createdAt: new Date(),
+  });
+
+  // Remove the OTP request
+  await db.collection("otpRequests").deleteOne({ email });
 
   return NextResponse.json(
-    { message: "User verified successfully" },
+    { message: "User verified and registered successfully" },
     { status: 200 }
   );
 }

@@ -8,7 +8,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import LocaleSwitcher from "./LocaleSwitcher";
-import ThemeToggle from "@/components/layout/ThemeToggle/theme-toggle";
+import ThemeToggle from "@/components/layout/Dashboard/ThemeToggle/theme-toggle";
 // import { useSession } from "next-auth/react";
 
 type MenuItem = {

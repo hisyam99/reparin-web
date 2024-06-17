@@ -1,4 +1,4 @@
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/layout/icons";
 import { NavItem, SidebarNavItem } from "@/types";
 
 export type User = {

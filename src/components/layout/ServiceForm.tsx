@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
-import CustomAlert from "@/components/CustomAlert";
+import CustomAlert from "@/components/layout/CustomAlert";
 
 const FormSchema = z.object({
   name: z.string().min(1, { message: "Name is required." }),
