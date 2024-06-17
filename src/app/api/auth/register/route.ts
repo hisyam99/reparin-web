@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     const expirationTime = new Date();
-    expirationTime.setMinutes(expirationTime.getMinutes() + 10);
+    expirationTime.setMinutes(expirationTime.getMinutes() + 5);
 
     // Store OTP and user data temporarily
     await db.collection("otpRequests").insertOne({
