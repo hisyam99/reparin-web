@@ -20,7 +20,7 @@ export const otpEmail = (
               <tr style="height: 0;">
                 <td>
                   <a href="${websiteUrl}" style="text-decoration: none;">
-                    <img alt="Reparin Logo" src="${logoUrl}" height="30px" />
+                    <img alt="Reparin" src="${logoUrl}" height="30px" />
                   </a>
                 </td>
                 <td style="text-align: right;">
@@ -48,7 +48,7 @@ export const otpEmail = (
           </div>
   
           <p style="max-width: 400px; margin: 0 auto; margin-top: 90px; text-align: center; font-weight: 500; color: #8c8c8c;">
-            Need help? Ask at <a href="mailto:reparin.xyz@gmail.com" style="color: #499fb6; text-decoration: none;">reparin.xyz@gmail.com</a> or visit our <a href="${websiteUrl}" target="_blank" style="color: #499fb6; text-decoration: none;">Help Center</a>
+            Need help? Ask at <a href="mailto:admin@reparin.xyz" style="color: #499fb6; text-decoration: none;">admin@reparin.xyz</a> or visit our <a href="${websiteUrl}" target="_blank" style="color: #499fb6; text-decoration: none;">Help Center</a>
           </p>
         </main>
   
