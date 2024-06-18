@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import { ReactNode, useTransition } from "react";
 import { useRouter, usePathname } from "@/navigation";
-
+import { locales } from "@/config";
 import {
   Select,
   SelectContent,
@@ -30,7 +30,7 @@ export default function LocaleSwitcherSelect({
   const params = useParams();
 
   function onSelectChange(value: string) {
-    const nextLocale = value;
+    const nextLocale = value as (typeof locales)[number];
     startTransition(() => {
       router.replace(
         {

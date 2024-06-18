@@ -17,8 +17,8 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ['github.com', 'lh3.googleusercontent.com'],
-  }
+    remotePatterns: ["github.com", "lh3.googleusercontent.com"],
+  },
 };
 
 export default withNextIntl(withPWA(nextConfig));
