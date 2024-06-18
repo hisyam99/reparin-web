@@ -51,12 +51,21 @@ export async function POST(req: NextRequest) {
       createdAt: new Date(),
     });
 
-    // Send OTP via email
+    // Send OTP via email using custom SMTP server
+    const smtpHost = process.env.SMTP_HOST ?? '';
+    const smtpPort = parseInt(process.env.SMTP_PORT ?? '587', 10);
+    const smtpSecure = process.env.SMTP_SECURE === 'true';
+    const smtpUser = process.env.SMTP_USER ?? '';
+    const smtpPassword = process.env.SMTP_PASSWORD ?? '';
+    const customDomain = process.env.CUSTOM_DOMAIN ?? '';
+
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: smtpHost,
+      port: smtpPort,
+      secure: smtpSecure, // true for 465, false for other ports
       auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASSWORD,
+        user: smtpUser,
+        pass: smtpPassword,
       },
     });
 
@@ -64,7 +73,7 @@ export async function POST(req: NextRequest) {
     const websiteUrl = "https://reparin.xyz";
 
     const mailOptions = {
-      from: process.env.GMAIL_USER,
+      from: `"Reparin" <${customDomain}>`,
       to: email,
       subject: "Your OTP Code",
       html: otpEmail(otp, logoUrl, websiteUrl),
